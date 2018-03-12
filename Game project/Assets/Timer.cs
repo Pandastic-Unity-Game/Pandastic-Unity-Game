@@ -40,8 +40,6 @@ public class Timer : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Start"))
         {
-            print("A");
-           // 
             startTime = Time.time;
             showTimer = true;
             timerText.color = Color.white;
