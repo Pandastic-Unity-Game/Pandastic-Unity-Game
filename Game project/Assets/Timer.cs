@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
+public class Timer : MonoBehaviour {
 
     
     private float startTime;
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
         if(showTimer)
         {
             
-            Timer();
+            LapTimer();
         }
       
     }
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     // Timer Script 
-    public void Timer()
+    public void LapTimer()
     {
         
        
