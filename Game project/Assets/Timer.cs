@@ -45,7 +45,7 @@ public class Timer : MonoBehaviour {
             timerText.color = Color.white;
 
         }
-        if(other.gameObject.CompareTag("Finnish"))
+        if(other.gameObject.CompareTag("Finish"))
         {
             timerText.color = Color.yellow;
             showTimer = false;
