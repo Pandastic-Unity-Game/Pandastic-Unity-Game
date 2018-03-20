@@ -6,11 +6,11 @@ public class Death : MonoBehaviour {
 
     public GameObject DeathEffect;
     public GameObject DeathSound;
+    public GameObject CrashSound;
     private Vector3 startP;
     private Quaternion startR;
 
     private MeshRenderer[] Meshes;
-    private AudioSource[] Audios;
 
     private Rigidbody car;
 
@@ -38,6 +38,15 @@ public class Death : MonoBehaviour {
         }
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        Crash();
+    }
+
+    void Crash()
+    {
+        Instantiate(CrashSound, transform.position, Quaternion.identity);
+    }
     void Dead()
     {
         Instantiate(DeathEffect,transform.position,Quaternion.identity);

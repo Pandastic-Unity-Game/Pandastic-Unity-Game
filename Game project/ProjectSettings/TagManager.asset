@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Start
   - Death
+  - ramp
   layers:
   - Default
   - TransparentFX
