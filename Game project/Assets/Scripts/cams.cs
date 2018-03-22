@@ -7,7 +7,7 @@ public class cams : MonoBehaviour
 
     private bool isSelect = false;
 
-    private Vector3 FrontP = new Vector3(0, 0, 20);
+    private Vector3 FrontP = new Vector3(0, 0, 8);
 
     void Update()
     {
