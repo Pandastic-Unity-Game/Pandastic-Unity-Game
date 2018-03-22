@@ -6,11 +6,12 @@ public class Death : MonoBehaviour {
 
     public GameObject DeathEffect;
     public GameObject DeathSound;
+    public GameObject CrashSound;
+    public GameObject DrownSound;
     private Vector3 startP;
     private Quaternion startR;
 
     private MeshRenderer[] Meshes;
-    private AudioSource[] Audios;
 
     private Rigidbody car;
 
@@ -36,8 +37,39 @@ public class Death : MonoBehaviour {
         {
             Dead();
         }
+        else if (collision.transform.tag == "Water")
+        {
+            Drown();
+        }
+        
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.transform.tag != "ramp")
+        {
+            Crash();
+            //Dead();
+        }
+        
+    }
+    void Drown()
+    {
+        Instantiate(DrownSound, transform.position, Quaternion.identity);
+        respawnBool = true;
+        foreach (MeshRenderer mesh in Meshes)
+        {
+            mesh.enabled = false;
+        }
+        car.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY |
+                          RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY
+                          | RigidbodyConstraints.FreezeRotationZ;
+        Invoke("Respawn", 3);
+    }
+    void Crash()
+    {
+        Instantiate(CrashSound, transform.position, Quaternion.identity);
+    }
     void Dead()
     {
         Instantiate(DeathEffect,transform.position,Quaternion.identity);

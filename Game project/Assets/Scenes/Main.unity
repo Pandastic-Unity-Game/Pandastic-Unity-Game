@@ -1026,6 +1026,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 190226, guid: 50673ce029549f04d8a30a3886523aad, type: 2}
+      propertyPath: m_TagString
+      value: ramp
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6594526, guid: 50673ce029549f04d8a30a3886523aad, type: 2}
     - {fileID: 64521690131081332, guid: 50673ce029549f04d8a30a3886523aad, type: 2}
@@ -1807,6 +1811,7 @@ GameObject:
   - component: {fileID: 685414263}
   - component: {fileID: 685414262}
   - component: {fileID: 685414266}
+  - component: {fileID: 685414270}
   m_Layer: 0
   m_Name: Car
   m_TagString: Player
@@ -1868,6 +1873,8 @@ MonoBehaviour:
   DeathEffect: {fileID: 1670449994409838, guid: deccd10c125c68b45a2f08a86047b8f6,
     type: 2}
   DeathSound: {fileID: 1402738661686712, guid: 0b188733d10daa8478b62e8b46ff14a8, type: 2}
+  CrashSound: {fileID: 1402738661686712, guid: fba52df8e41828d4bb12a04cb9925066, type: 2}
+  DrownSound: {fileID: 1402738661686712, guid: 0a3db8fcd65257e48b5eb7d8ce78c67b, type: 2}
 --- !u!114 &685414265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1969,6 +1976,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &685414270
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 685414261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 1, z: 4.5}
+  m_Center: {x: 0, y: 0.8, z: -0.1}
 --- !u!1 &716722204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3198,7 +3217,7 @@ GameObject:
   - component: {fileID: 1080829458}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Death
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4923,7 +4942,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -4935,7 +4954,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -4947,7 +4966,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &1943462797
 MonoBehaviour:
   m_ObjectHideFlags: 0
