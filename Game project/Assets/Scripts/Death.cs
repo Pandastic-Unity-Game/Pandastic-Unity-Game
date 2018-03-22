@@ -46,7 +46,12 @@ public class Death : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collision)
     {
-        Crash();
+        if (collision.transform.tag != "ramp")
+        {
+            Crash();
+            //Dead();
+        }
+        
     }
     void Drown()
     {

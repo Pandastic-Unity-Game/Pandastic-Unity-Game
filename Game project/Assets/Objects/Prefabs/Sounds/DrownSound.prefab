@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 82035084299217130}
   - component: {fileID: 114145737297074892}
   m_Layer: 0
-  m_Name: ExplosionSound
+  m_Name: DrownSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243237233689025650, guid: 480e0ee44f1a5ec4393d00d513c39c49,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: c307618f0ba9a314598fad83576e2edd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 843a00c896ae0a148bc1688744e3921b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
