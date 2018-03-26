@@ -17,6 +17,8 @@ public class LapComplete : MonoBehaviour {
     public GameObject BestSecondDisplay;
     public GameObject BestMiliDisplay;
 
+	public GameObject LapCount;
+
     public int Lap;
     public int BestMin;
     public int BestSec;
@@ -75,7 +77,9 @@ public class LapComplete : MonoBehaviour {
         LapTimeManager.SecondCount = 0;
         LapTimeManager.MilliCount = 0;
 
+
         Lap += 1;
+		LapCount.GetComponent<Text> ().text = Convert.ToString (Lap);
 
 	
 			
