@@ -53,7 +53,7 @@ public class LapComplete : MonoBehaviour {
 		MilliDisplay.GetComponent<Text> ().text = "" + LapTimeManager.MilliCount;
 
 
-	if (LapTimeManager.MinuteCount< BestMin) {
+       if (LapTimeManager.MinuteCount< BestMin) {
 			
 			ChangeData ();
 		}
@@ -62,14 +62,13 @@ public class LapComplete : MonoBehaviour {
             { 
 				ChangeData();
 			}
-		}
-		else if(LapTimeManager.SecondCount== BestSec)
-		{
-			if (LapTimeManager.MilliCount < BestMilli)
-			{
-				ChangeData();
-			}
-		}
+            else if (LapTimeManager.MilliCount < BestMilli)
+            {
+                ChangeData();
+            }
+        }
+        
+
 
         LapTimeManager.MinuteCount = 0;
         LapTimeManager.SecondCount = 0;
