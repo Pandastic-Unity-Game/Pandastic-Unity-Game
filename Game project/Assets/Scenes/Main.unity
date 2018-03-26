@@ -494,8 +494,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 58162600}
-  m_LocalRotation: {x: -0.010945124, y: 0.60996234, z: 0.0084261475, w: 0.79231006}
-  m_LocalPosition: {x: 3.405735, y: -10.184793, z: 5.3734484}
+  m_LocalRotation: {x: 0.087172285, y: 0.89959055, z: 0.21045254, w: -0.37262255}
+  m_LocalPosition: {x: 629.28455, y: -901.36444, z: 645.5576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -730,7 +730,7 @@ MonoBehaviour:
   BestMinuteDisplay: {fileID: 620604199}
   BestSecondDisplay: {fileID: 1380954753}
   BestMiliDisplay: {fileID: 1862358624}
-  LapCount: {fileID: 0}
+  LapCount: {fileID: 804436259}
   Lap: 0
   BestMin: 0
   BestSec: 0
