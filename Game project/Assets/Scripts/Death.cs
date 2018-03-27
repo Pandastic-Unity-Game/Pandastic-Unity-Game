@@ -6,6 +6,8 @@ public class Death : MonoBehaviour {
 
     public GameObject DeathEffect;
     public GameObject DeathSound;
+    public GameObject RespawnEffect;
+    public GameObject RespawnSound;
     public GameObject CrashSound;
     public GameObject DrownSound;
     private Vector3 startP;
@@ -94,6 +96,8 @@ public class Death : MonoBehaviour {
         transform.position = startP;
         transform.rotation = startR;
         car.constraints = RigidbodyConstraints.None;
+        Instantiate(RespawnEffect,transform.position,Quaternion.identity);
+        Instantiate(RespawnSound,transform.position,Quaternion.identity);
         Invoke("ResetRespawn",2);
     }
 
