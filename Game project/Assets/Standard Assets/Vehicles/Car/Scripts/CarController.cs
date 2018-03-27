@@ -54,6 +54,7 @@ namespace UnityStandardAssets.Vehicles.Car
         public float MaxSpeed{get { return m_Topspeed; }}
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
+        public bool IsDrifting = false;
 
         // Use this for initialization
         private void Start()
@@ -279,7 +280,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 // is the tire slipping above the given threshhold
                 if (Mathf.Abs(wheelHit.forwardSlip) >= m_SlipLimit || Mathf.Abs(wheelHit.sidewaysSlip) >= m_SlipLimit)
                 {
-                    m_WheelEffects[i].EmitTyreSmoke();
+                    IsDrifting = true;
 
                     // avoiding all four tires screeching at the same time
                     // if they do it can lead to some strange audio artefacts
@@ -296,7 +297,7 @@ namespace UnityStandardAssets.Vehicles.Car
                     m_WheelEffects[i].StopAudio();
                 }
                 // end the trail generation
-                m_WheelEffects[i].EndSkidTrail();
+                IsDrifting = false;
             }
         }
 
