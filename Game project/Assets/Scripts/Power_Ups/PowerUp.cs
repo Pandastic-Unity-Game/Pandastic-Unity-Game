@@ -22,6 +22,7 @@ public class PowerUp : MonoBehaviour
         if (other.transform.tag == "Player")
         {
             Respawn();
+            Nitro = true;
         }
     }
 

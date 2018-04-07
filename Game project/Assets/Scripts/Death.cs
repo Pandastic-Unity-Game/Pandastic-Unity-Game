@@ -23,6 +23,7 @@ public class Death : MonoBehaviour {
 
     private Vector3 directionUp = new Vector3(0,100,0);
 
+    public bool boom;
 
 
     private void Start()
@@ -31,6 +32,8 @@ public class Death : MonoBehaviour {
         Meshes = gameObject.GetComponentsInChildren<MeshRenderer>();
         startP = transform.position;
         startR = transform.rotation;
+        boom = false;
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -38,20 +41,32 @@ public class Death : MonoBehaviour {
         if (collision.transform.tag == "Death")
         {
             Dead();
+
         }
         else if (collision.transform.tag == "Water")
         {
             Drown();
         }
+        else if (collision.transform.tag == "Mine")
+        {
+            Dead();
+            boom = true;
+        }
+        
         
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform.tag == "ramp" || collision.transform.tag == "Shield" || collision.transform.tag == "Nitro")
+        if (collision.transform.tag == "ramp" || collision.transform.tag == "Shield" || collision.transform.tag == "Nitro" || collision.transform.tag == "MineBox")
         {
 
         }
+        else if (collision.transform.tag == "Mine")
+        {
+            Dead();
+            boom = true;
+        }      
         else
         {
             Crash();

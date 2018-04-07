@@ -12,6 +12,8 @@ TagManager:
   - Nitro
   - Weapon
   - Electrics
+  - MineBox
+  - Mine
   layers:
   - Default
   - TransparentFX
