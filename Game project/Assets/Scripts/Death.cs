@@ -48,7 +48,11 @@ public class Death : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform.tag != "ramp")
+        if (collision.transform.tag == "ramp" || collision.transform.tag == "Shield" || collision.transform.tag == "Nitro")
+        {
+
+        }
+        else
         {
             Crash();
             //Dead();

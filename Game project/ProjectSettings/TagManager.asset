@@ -8,6 +8,10 @@ TagManager:
   - Death
   - ramp
   - Water
+  - Shield
+  - Nitro
+  - Weapon
+  - Electrics
   layers:
   - Default
   - TransparentFX
