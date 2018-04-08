@@ -5,19 +5,22 @@ using UnityStandardAssets.Vehicles.Car;
     
 public class My_Power_UP : MonoBehaviour {
 
+    public Timer timer;
     public bool Nitro;
+    public Rigidbody Missile;
     private bool Mine;
     private bool Shield;
+    public bool Rocket;
     public bool tikrinti;
     public float naxui = 20;
    // private CarController carcontroller;
     public GameObject GameObj;
-    private double NitroDuration;
+    private float NitroDuration;
    // int TopSpeed;
     //int ForwardSpeed;
     Rigidbody car;
     SphereCollider Shiel;
-    private CarController Controler;
+    public CarController Controler;
     public float TopSpeed;
     public float NitroSpeed;
 
@@ -26,6 +29,7 @@ public class My_Power_UP : MonoBehaviour {
         Mine = false;
         Shield = false;
         tikrinti = false;
+        Rocket = false;
         Controler = GameObj.GetComponent<CarController>();
         //TopSpeed = Controler.m_Topspeed;
        // NitroSpeed = Speed * 1.5f;
@@ -38,53 +42,58 @@ public class My_Power_UP : MonoBehaviour {
             Nitro = true;
             Mine = false;
             Shield = false;
-            NitroDuration = 5f;
-            Controler.m_Topspeed = NitroSpeed;
-        }
-        if (Nitro)
-        {
-            
-           // if (Input.GetButton("PowerUp"))
-          //  {
-                tikrinti = true;
-                NitroDuration -= Time.deltaTime;
-                //Debug.Log(Controler.m_Topspeed = NitroSpeed);
-                Controler.m_Topspeed = NitroSpeed;
-                
-
-           // }
-           // else
-           // {
-              //  Debug.Log(Controler.m_Topspeed = Speed);
-              //  Controler.m_Topspeed = Speed;
-           // }
+            Rocket = false;
+            NitroDuration = 5.0f;
+            //Controler.m_Topspeed = NitroSpeed;
         }
 
-        if (collision.transform.tag == "Mine")
-        {
-            Nitro = false;
-            Mine = true;
-            if (Input.GetButton("PowerUp"))
-            {
-
-             //   Instantiate(landMine, transform.position, Quaternion.identity);
-
-                Mine = false;
-            }
-
-        }
-        if (collision.transform.tag == "Shield")
+        if (collision.transform.tag == "Rocket")
         {
             Nitro = false;
             Mine = false;
-            Shield = true;
-            if (Input.GetButton("PowerUp"))
+            Shield = false;
+            Rocket = true;
+            //NitroDuration = 5.0f;
+            //Controler.m_Topspeed = NitroSpeed;
+        }
+    }
+
+    private void Update()
+    {
+
+        if (Input.GetButton("PowerUp"))
+        {
+            if (Nitro)
             {
+                StartCoroutine(usingNitro());
+            }
 
-
+            if (Rocket)
+            {
+                Fire();
             }
         }
-
     }
-	
+
+    IEnumerator usingNitro()
+    {
+        
+            Debug.Log("works");
+            Controler.m_Topspeed = 60;
+            Controler.m_FullTorqueOverAllWheels = 700;
+            yield return new WaitForSeconds(NitroDuration);
+            Controler.m_Topspeed = 40;
+            Controler.m_FullTorqueOverAllWheels = 450;
+            Nitro = false;
+       
+        
+    }
+
+    void Fire()
+    {
+        Debug.Log("works Rocket");
+        Instantiate(Missile, transform.position , transform.rotation);
+        Debug.Log("works Rocket2");
+        Rocket = false;
+    }
 }

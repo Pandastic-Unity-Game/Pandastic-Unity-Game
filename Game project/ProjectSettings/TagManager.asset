@@ -12,6 +12,9 @@ TagManager:
   - Nitro
   - Weapon
   - Electrics
+  - Rocket
+  - AI
+  - Missile
   layers:
   - Default
   - TransparentFX
