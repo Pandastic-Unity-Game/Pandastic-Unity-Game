@@ -27,6 +27,9 @@ public class My_Power_UP : MonoBehaviour
     public float TopSpeed;
     public float NitroSpeed;
 
+    public ParticleSystem shieldParticles;
+    public ParticleSystem eletricParticles;
+
     Mina LaMine;
     void Start()
     {
@@ -46,6 +49,7 @@ public class My_Power_UP : MonoBehaviour
 
     void Update()
     {
+        var shieldEmission = shieldParticles.emission;
         if (Nitro)
         {
 
@@ -64,12 +68,26 @@ public class My_Power_UP : MonoBehaviour
                 ShieldOn = true;
                 ShieldDuration -= Time.deltaTime;
             }
+            else
+            {
+                ShieldOn = false;
+            }
             if (ShieldDuration <= 0)
             {
                 Shield = false;
                 ShieldOn = false;
             }
         }
+
+        if (ShieldOn)
+        {
+            shieldEmission.enabled = true;
+        }
+        else
+        {
+            shieldEmission.enabled = false;
+        }
+
         if (Mine)
         {
             if (Input.GetButton("PowerUp"))

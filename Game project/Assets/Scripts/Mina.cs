@@ -16,8 +16,10 @@ public class Mina : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-       
+        if (collision.transform.tag == "Player" || collision.transform.tag == "AI")
+        {
             Destroy(this.gameObject);
+        }
         
     }
 }

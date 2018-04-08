@@ -10,6 +10,9 @@ public class PowerUp : MonoBehaviour
     // public GameObject PowerUpSound;
     private Vector3 startP;
     GameObject Power;
+    public GameObject RespawnEffect;
+    public GameObject RespawnSound;
+    public GameObject PickUpSound;
     private void Start()
     {
         startP = transform.position;
@@ -35,8 +38,8 @@ public class PowerUp : MonoBehaviour
     void RespawnObject()
     {
         Instantiate(gameObject, startP, Quaternion.identity);
+        Instantiate(RespawnEffect, transform.position, Quaternion.identity);
+        Instantiate(RespawnSound, transform.position, Quaternion.identity);
         Power.SetActive(true);
     }
-
-
 }
