@@ -5,8 +5,9 @@ using UnityStandardAssets.Vehicles.Car;
 
 public class My_Power_UP : MonoBehaviour
 {
-
-    private bool Nitro;
+    public Rigidbody Missile;
+    public bool Rocket;
+    public bool Nitro;
     public bool Mine;
     private bool Shield;
     private bool ShieldOn;
@@ -20,7 +21,7 @@ public class My_Power_UP : MonoBehaviour
     //int ForwardSpeed;
     Rigidbody car;
     SphereCollider Mina;
-    private CarController Controler;
+    public CarController Controler;
     public float TopSpeed;
     public float NitroSpeed;
 
@@ -30,6 +31,7 @@ public class My_Power_UP : MonoBehaviour
         Nitro = false;
         Mine = false;
         Shield = false;
+        Rocket = false;
         ShieldOn = false;
 
         Seeek = GameObject.Find("Seek");
@@ -48,7 +50,7 @@ public class My_Power_UP : MonoBehaviour
             if (Input.GetButton("PowerUp"))
             {
                 
-                NitroDuration -= Time.deltaTime;
+                StartCoroutine(usingNitro());
 
             }
         }
@@ -74,6 +76,15 @@ public class My_Power_UP : MonoBehaviour
                 Instantiate(LandMine, Seeek.transform.position, Quaternion.identity);
                 Mine = false;
                 
+            }
+        }
+
+        if (Rocket)
+        {
+            if (Input.GetButton("PowerUp"))
+            {
+                Fire();
+
             }
         }
     }
@@ -108,7 +119,39 @@ public class My_Power_UP : MonoBehaviour
 
         }
 
+        if (collision.transform.tag == "Rocket")
+        {
+            Nitro = false;
+            Mine = false;
+            Shield = false;
+            Rocket = true;
+            //NitroDuration = 5.0f;
+            //Controler.m_Topspeed = NitroSpeed;
+        }
+
     }
 
-    
+    IEnumerator usingNitro()
+    {
+
+        Debug.Log("works");
+        Controler.m_Topspeed = 60;
+        Controler.m_FullTorqueOverAllWheels = 700;
+        Debug.Log("work2s");
+        yield return new WaitForSeconds(NitroDuration);
+        Controler.m_Topspeed = 40;
+        Controler.m_FullTorqueOverAllWheels = 450;
+        Debug.Log("work3s");
+        Nitro = false;
+
+
+    }
+
+    void Fire()
+    {
+        Debug.Log("works Rocket");
+        Instantiate(Missile, transform.position, transform.rotation);
+        Debug.Log("works Rocket2");
+        Rocket = false;
+    }
 }

@@ -14,6 +14,9 @@ TagManager:
   - Electrics
   - MineBox
   - Mine
+  - Rocket
+  - AI
+  - Missile
   layers:
   - Default
   - TransparentFX
