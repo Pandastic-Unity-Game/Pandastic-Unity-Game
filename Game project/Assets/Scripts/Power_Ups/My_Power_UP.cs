@@ -9,8 +9,10 @@ public class My_Power_UP : MonoBehaviour
     public bool Rocket;
     public bool Nitro;
     public bool Mine;
-    private bool Shield;
-    private bool ShieldOn;
+    public bool check;
+
+    public bool Shield;
+    public bool ShieldOn;
     // private CarController carcontroller;
     GameObject GameObj;
     public GameObject LandMine;
@@ -33,7 +35,7 @@ public class My_Power_UP : MonoBehaviour
         Shield = false;
         Rocket = false;
         ShieldOn = false;
-
+        check = false;
         Seeek = GameObject.Find("Seek");
 
         Controler = GameObj.GetComponent<CarController>();
@@ -72,7 +74,7 @@ public class My_Power_UP : MonoBehaviour
         {
             if (Input.GetButton("PowerUp"))
             {
-                NitroDuration -= Time.deltaTime;
+                check = true; 
                 Instantiate(LandMine, Seeek.transform.position, Quaternion.identity);
                 Mine = false;
                 

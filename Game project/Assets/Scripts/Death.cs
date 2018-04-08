@@ -25,6 +25,7 @@ public class Death : MonoBehaviour {
 
     public bool boom;
 
+    private My_Power_UP Shieldd;
 
     private void Start()
     {
@@ -33,7 +34,7 @@ public class Death : MonoBehaviour {
         startP = transform.position;
         startR = transform.rotation;
         boom = false;
-
+        Shieldd = gameObject.GetComponent<My_Power_UP>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -47,7 +48,7 @@ public class Death : MonoBehaviour {
         {
             Drown();
         }
-        else if (collision.transform.tag == "Mine")
+        else if (collision.transform.tag == "Mine" && !Shieldd.ShieldOn)
         {
             Dead();
             boom = true;
@@ -62,7 +63,7 @@ public class Death : MonoBehaviour {
         {
 
         }
-        else if (collision.transform.tag == "Mine")
+        else if (collision.transform.tag == "Mine" && !Shieldd.ShieldOn)
         {
             Dead();
             boom = true;
