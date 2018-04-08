@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44811904, g: 0.4981308, b: 0.57554156, a: 1}
+  m_IndirectSpecularColor: {r: 0.4481188, g: 0.49813062, b: 0.5755408, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 12330671}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: MineBox
+  m_TagString: Rocket
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -591,8 +591,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 58162600}
-  m_LocalRotation: {x: 0.37830096, y: 0.52150196, z: 0.27669945, w: -0.7129948}
-  m_LocalPosition: {x: 71.1385, y: -59.526257, z: 26.047482}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 55.684055, y: -3.3073282, z: 22.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3408,8 +3408,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35033689ef00c1b49b328d9d0944c16b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Missile: {fileID: 54222019422110878, guid: ca099224d21d7534eae66ffa26e64408, type: 2}
+  Rocket: 0
+  Nitro: 0
   Mine: 0
   LandMine: {fileID: 119916, guid: 3a73e26f88957b343af0490c9403c8f0, type: 2}
+  Controler: {fileID: 685414267}
   TopSpeed: 30
   NitroSpeed: 50
 --- !u!114 &685414274
@@ -4176,6 +4180,12 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 100064, guid: 0fb4610dba67fc24cb2a6674fb155fc1, type: 2}
   m_PrefabInternal: {fileID: 1344147616}
+--- !u!114 &798781056 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11400020, guid: 0fb4610dba67fc24cb2a6674fb155fc1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1344147616}
+  m_Script: {fileID: 11500000, guid: 3ea65b38d485c374caa584a03f1de571, type: 3}
 --- !u!114 &798781059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4207,8 +4217,22 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.3, y: 0.57, z: 4.66}
-  m_Center: {x: 0, y: 0.85, z: -0.1}
+  m_Size: {x: 2.3, y: 1, z: 4.66}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &798781061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798781052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b0b2e54b3ad28458f3bfaca6c108bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 798781056}
+  speed: 0
+  freeze: 0
 --- !u!1 &804436259
 GameObject:
   m_ObjectHideFlags: 0
@@ -6896,6 +6920,14 @@ Prefab:
     - target: {fileID: 8200010, guid: 0fb4610dba67fc24cb2a6674fb155fc1, type: 2}
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100064, guid: 0fb4610dba67fc24cb2a6674fb155fc1, type: 2}
+      propertyPath: m_TagString
+      value: AI
+      objectReference: {fileID: 0}
+    - target: {fileID: 100046, guid: 0fb4610dba67fc24cb2a6674fb155fc1, type: 2}
+      propertyPath: m_TagString
+      value: AI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fb4610dba67fc24cb2a6674fb155fc1, type: 2}
