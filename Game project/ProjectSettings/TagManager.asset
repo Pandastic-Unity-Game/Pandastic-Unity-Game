@@ -8,6 +8,15 @@ TagManager:
   - Death
   - ramp
   - Water
+  - Shield
+  - Nitro
+  - Weapon
+  - Electrics
+  - MineBox
+  - Mine
+  - Rocket
+  - AI
+  - Missile
   layers:
   - Default
   - TransparentFX
