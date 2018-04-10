@@ -7,7 +7,7 @@ public class ChooseMenu : MonoBehaviour {
 
 	public void SinglePlayerStart()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Map2");
     }
 
     public void MultiPlayerStart()
