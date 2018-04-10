@@ -29,56 +29,52 @@ public class LapComplete : MonoBehaviour {
 
 
 
-	void OnTriggerEnter () {
+	void OnTriggerEnter (Collider other) {
 	
-       if(Lap==0)
-        {
-            BestMin = 999;
-            BestSec = 999;
-            BestMilli = 999;
-        }
-
-		if (LapTimeManager.SecondCount <= 9) {
-			SecondDisplay.GetComponent<Text> ().text = "0" + LapTimeManager.SecondCount + ".";
-
-		} else {
-			SecondDisplay.GetComponent<Text> ().text = "" + LapTimeManager.SecondCount + ".";
-         
-		}
-
-		if (LapTimeManager.MinuteCount <= 9) {
-			MinuteDisplay.GetComponent<Text> ().text = "0" + LapTimeManager.MinuteCount + ".";
-		} else {
-			MinuteDisplay.GetComponent<Text> ().text = "" + LapTimeManager.MinuteCount + ".";
-		}
-
-		MilliDisplay.GetComponent<Text> ().text = "" + LapTimeManager.MilliCount;
-
-
-       if (LapTimeManager.MinuteCount< BestMin) {
-			
-			ChangeData ();
-		}
-		else if(LapTimeManager.MinuteCount==BestMin) {
-			if(LapTimeManager.SecondCount<BestSec)
-            { 
-				ChangeData();
+		if (other.gameObject.CompareTag("Player")) {
+			if (Lap == 0) {
+				BestMin = 999;
+				BestSec = 999;
+				BestMilli = 999;
 			}
-            else if (LapTimeManager.MilliCount < BestMilli)
-            {
-                ChangeData();
-            }
-        }
+
+			if (LapTimeManager.SecondCount <= 9) {
+				SecondDisplay.GetComponent<Text> ().text = "0" + LapTimeManager.SecondCount + ".";
+
+			} else {
+				SecondDisplay.GetComponent<Text> ().text = "" + LapTimeManager.SecondCount + ".";
+         
+			}
+
+			if (LapTimeManager.MinuteCount <= 9) {
+				MinuteDisplay.GetComponent<Text> ().text = "0" + LapTimeManager.MinuteCount + ".";
+			} else {
+				MinuteDisplay.GetComponent<Text> ().text = "" + LapTimeManager.MinuteCount + ".";
+			}
+
+			MilliDisplay.GetComponent<Text> ().text = "" + LapTimeManager.MilliCount;
+
+
+			if (LapTimeManager.MinuteCount < BestMin) {
+			
+				ChangeData ();
+			} else if (LapTimeManager.MinuteCount == BestMin) {
+				if (LapTimeManager.SecondCount < BestSec) { 
+					ChangeData ();
+				} else if (LapTimeManager.MilliCount < BestMilli) {
+					ChangeData ();
+				}
+			}
         
 
 
-        LapTimeManager.MinuteCount = 0;
-        LapTimeManager.SecondCount = 0;
-        LapTimeManager.MilliCount = 0;
+			LapTimeManager.MinuteCount = 0;
+			LapTimeManager.SecondCount = 0;
+			LapTimeManager.MilliCount = 0;
 
 
-        Lap += 1;
-		LapCount.GetComponent<Text> ().text = Convert.ToString (Lap);
+			Lap += 1;
+			LapCount.GetComponent<Text> ().text = Convert.ToString (Lap);
 
 	
 			
@@ -86,8 +82,9 @@ public class LapComplete : MonoBehaviour {
 
 		
 
-		HalfLapTrig.SetActive (true);
-		LapCompleteTrig.SetActive (false);
+			HalfLapTrig.SetActive (true);
+			LapCompleteTrig.SetActive (false);
+		}
 }
 
 	void ChangeData () {

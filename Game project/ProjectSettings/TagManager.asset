@@ -17,6 +17,7 @@ TagManager:
   - AI(1)
   - PositionTriggers
   - CheckPointLap
+  - AI
   layers:
   - Default
   - TransparentFX
