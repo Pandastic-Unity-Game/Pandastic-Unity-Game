@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114480339880102716}
   - component: {fileID: 54600751790200414}
   - component: {fileID: 65181232018615510}
+  - component: {fileID: 65598316774386174}
   m_Layer: 0
   m_Name: at_mine_LOD3 1
   m_TagString: Mine
@@ -110,7 +111,19 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3230304, y: 0.26, z: 0.34981176}
+  m_Size: {x: 0.3230304, y: 0.3230304, z: 0.34981176}
+  m_Center: {x: -0.000000074505806, y: 0.1, z: -0.021289438}
+--- !u!65 &65598316774386174
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015753020900504}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3230304, y: 0.3230304, z: 0.34981176}
   m_Center: {x: -0.000000074505806, y: 0.1, z: -0.021289438}
 --- !u!114 &114480339880102716
 MonoBehaviour:

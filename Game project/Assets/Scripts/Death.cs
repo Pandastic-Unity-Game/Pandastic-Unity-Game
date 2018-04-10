@@ -27,6 +27,8 @@ public class Death : MonoBehaviour {
 
     private My_Power_UP Shieldd;
 
+    public bool IsEnemy = false;
+
     private void Start()
     {
         car = gameObject.GetComponent<Rigidbody>();
@@ -42,19 +44,18 @@ public class Death : MonoBehaviour {
         if (collision.transform.tag == "Death")
         {
             Dead();
-
         }
+
         else if (collision.transform.tag == "Water")
         {
             Drown();
         }
-        else if (collision.transform.tag == "Mine" && !Shieldd.ShieldOn)
+
+        else if (collision.transform.tag == "Mine")
         {
             Dead();
             boom = true;
         }
-        
-        
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -63,7 +64,7 @@ public class Death : MonoBehaviour {
         {
 
         }
-        else if (collision.transform.tag == "Mine" && !Shieldd.ShieldOn)
+        else if (collision.transform.tag == "Mine")
         {
             Dead();
             boom = true;
@@ -128,11 +129,14 @@ public class Death : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetButtonDown("Respawn"))
+        if (!IsEnemy)
         {
-            if (!respawnBool)
+            if (Input.GetButtonDown("Respawn"))
             {
-                Dead();
+                if (!respawnBool)
+                {
+                    Dead();
+                }
             }
         }
     }
