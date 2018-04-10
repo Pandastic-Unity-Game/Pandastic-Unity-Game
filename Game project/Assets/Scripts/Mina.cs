@@ -25,7 +25,7 @@ public class Mina : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.tag == "Player" || collision.transform.tag == "AI")
+        if (other.transform.tag == "Player" || other.transform.tag == "AI")
         {
             Destroy(this.gameObject);
         }
