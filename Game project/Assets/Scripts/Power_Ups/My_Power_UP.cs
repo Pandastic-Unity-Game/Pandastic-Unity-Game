@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Vehicles.Car;
 using UnityEngine.PostProcessing;
+using UnityEngine.UI;
 
 public class My_Power_UP : MonoBehaviour
 {
@@ -11,8 +12,9 @@ public class My_Power_UP : MonoBehaviour
     public bool Nitro;
     public bool Mine;
     public bool check;
-
+    public bool isElectrified;
     public bool Shield;
+    public bool Electric;
     public bool ShieldOn;
     // private CarController carcontroller;
     GameObject GameObj;
@@ -27,16 +29,32 @@ public class My_Power_UP : MonoBehaviour
     public CarController Controler;
     public float TopSpeed;
     public float NitroSpeed;
+    private float electricDuration = 4.0f;
+    private float tempShield = 1;
 
     public ParticleSystem shieldParticles;
     public ParticleSystem eletricParticles;
     private ParticleSystem[] nitroParticles;
     public GameObject nitroParticlesObject;
 
+    public GameObject electricExplosionParticles;
+    public GameObject electricExplosionSound;
+    public GameObject electricExplosionSphere;
+
     public AudioSource shieldSound;
     public AudioSource electifiedSound;
     public AudioSource nitroSound;
     public PostProcessingProfile Profile;
+
+    private Image NitroGUI;
+    private Image ShieldGUI;
+    private Image MineGUI;
+    private Image ExplosionGUI;
+    private Image RocketGUI;
+
+    private Death DeathScript;
+
+    private bool enableTempShield = false;
 
     Mina LaMine;
     void Start()
@@ -45,9 +63,18 @@ public class My_Power_UP : MonoBehaviour
         Mine = false;
         Shield = false;
         Rocket = false;
+        Electric = false;
         ShieldOn = false;
         check = false;
         Seeek = GameObject.Find("Seek");
+
+        DeathScript = gameObject.GetComponent<Death>();
+
+        NitroGUI = GameObject.FindGameObjectWithTag("NitroGUI").GetComponent<Image>();
+        MineGUI = GameObject.FindGameObjectWithTag("MineGUI").GetComponent<Image>();
+        ShieldGUI = GameObject.FindGameObjectWithTag("ShieldGUI").GetComponent<Image>();
+        ExplosionGUI = GameObject.FindGameObjectWithTag("ExplosionGUI").GetComponent<Image>();
+        RocketGUI = GameObject.FindGameObjectWithTag("RocketGUI").GetComponent<Image>();
 
         nitroSound.enabled = false;
         shieldSound.enabled = false;
@@ -66,58 +93,139 @@ public class My_Power_UP : MonoBehaviour
         var shieldEmission = shieldParticles.emission;
         var electrifiedEmission = eletricParticles.emission;
 
-        if (Nitro)
+        if (!DeathScript.IsDead)
         {
-
-            if (Input.GetButton("PowerUp"))
+            if (!isElectrified)
             {
-                
-                StartCoroutine(usingNitro());
+                electrifiedEmission.enabled = false;
+                electifiedSound.enabled = false;
 
+                if (Nitro)
+                {
+                    NitroGUI.enabled = true;
+                    if (Input.GetButton("PowerUp"))
+                    {
+                        Nitro = false;
+                        StartCoroutine(usingNitro());
+
+                    }
+                }
+                else
+                {
+                    NitroGUI.enabled = false;
+                }
+
+                if (Shield)
+                {
+                    ShieldGUI.enabled = true;
+                    if (Input.GetButtonDown("PowerUp"))
+                    {
+                        Shield = false;
+                        ShieldOn = true;
+                        shieldEmission.enabled = true;
+                        shieldSound.enabled = true;
+                    }
+                }
+                else
+                {
+                    ShieldGUI.enabled = false;
+                }
+
+                if (ShieldOn)
+                {
+                    ShieldDuration -= Time.deltaTime;
+
+                    if (ShieldDuration <= 0)
+                    {
+                        ShieldOn = false;
+                        shieldEmission.enabled = false;
+                        shieldSound.enabled = false;
+                    }
+                }
+                else
+                {
+                    shieldEmission.enabled = false;
+                    shieldSound.enabled = false;
+                }
+
+                if (Mine)
+                {
+                    MineGUI.enabled = true;
+
+                    if (Input.GetButton("PowerUp"))
+                    {
+                        check = true;
+                        Instantiate(LandMine, Seeek.transform.position, Quaternion.identity);
+                        Mine = false;
+                    }
+                }
+                else
+                {
+                    MineGUI.enabled = false;
+                }
+
+                if (Rocket)
+                {
+                    RocketGUI.enabled = true;
+                    if (Input.GetButton("PowerUp"))
+                    {
+                        Fire();
+                        Rocket = false;
+                    }
+                }
+                else
+                {
+                    RocketGUI.enabled = false;
+                }
+
+                if (Electric)
+                {
+                    ExplosionGUI.enabled = true;
+                    if (Input.GetButton("PowerUp"))
+                    {
+                        enableTempShield = true;
+                        Instantiate(electricExplosionSphere, transform.position, Quaternion.identity);
+                        Instantiate(electricExplosionParticles,transform.position,Quaternion.identity);
+                        Instantiate(electricExplosionSound, transform.position, Quaternion.identity);
+                        Electric = false;
+                    }
+                }
+                else
+                {
+                    ExplosionGUI.enabled = false;
+                }
             }
-        }
-
-        if (Shield)
-        {
-            if (Input.GetButtonDown("PowerUp"))
+            else
             {
-                ShieldOn = true;
-            }
-        }
+                electricDuration -= Time.deltaTime;
+                electrifiedEmission.enabled = true;
+                electifiedSound.enabled = true;
 
-        if (ShieldOn)
-        {
-            shieldEmission.enabled = true;
-            shieldSound.enabled = true;
-            ShieldDuration -= Time.deltaTime;
-
-            if (ShieldDuration <= 0)
-            {
-                Shield = false;
-                ShieldOn = false;
+                if (electricDuration <= 0)
+                {
+                    isElectrified = false;
+                    electricDuration = 4;
+                }
             }
         }
         else
         {
-            shieldEmission.enabled = false;
-            shieldSound.enabled = false;
+            Rocket = false;
+            Nitro = false;
+            Shield = false;
+            Mine = false;
         }
 
-        if (Mine)
+        if (enableTempShield)
         {
-            if (Input.GetButton("PowerUp"))
-            {
-                check = true; 
-                Instantiate(LandMine, Seeek.transform.position, Quaternion.identity);
-                Mine = false;
-            }
-        }
+            ShieldOn = true;
+            tempShield -= Time.deltaTime;
 
-        if (Rocket)
-        {
-            if (Input.GetButton("PowerUp"))
+            if (tempShield <= 0)
             {
-                Fire();
+                ShieldOn = false;
+                enableTempShield = false;
+                tempShield = 1;
             }
         }
     }
@@ -130,7 +238,8 @@ public class My_Power_UP : MonoBehaviour
             Nitro = true;
             Mine = false;
             Shield = false;
-            ShieldOn = false;
+            Electric = false;
+            Rocket = false;
             NitroDuration = 5f;
             //  Controler.m_Topspeed = NitroSpeed;
         }
@@ -138,19 +247,19 @@ public class My_Power_UP : MonoBehaviour
         {
             Nitro = false;
             Shield = false;
-            ShieldOn = false;
             Mine = true;
-
-
+            Rocket = false;
+            Electric = false;
         }
+
         if (collision.transform.tag == "Shield")
         {
             Nitro = false;
             Mine = false;
             Shield = true;
             Rocket = false;
+            Electric = false;
             ShieldDuration = 5f;
-
         }
 
         if (collision.transform.tag == "Rocket")
@@ -159,45 +268,53 @@ public class My_Power_UP : MonoBehaviour
             Mine = false;
             Shield = false;
             Rocket = true;
+            Electric = false;
             //NitroDuration = 5.0f;
             //Controler.m_Topspeed = NitroSpeed;
+        }
+
+        if (collision.transform.tag == "Electric")
+        {
+            Nitro = false;
+            Mine = false;
+            Shield = false;
+            Rocket = false;
+            Electric = true;
         }
 
     }
 
     IEnumerator usingNitro()
     {
-
-        Debug.Log("works");
         Controler.m_Topspeed = 70;
         Controler.m_FullTorqueOverAllWheels = 700;
+
         foreach (ParticleSystem particles in nitroParticles)
         {
             var nitroEmission = particles.emission;
             nitroEmission.enabled = true;
         }
+
         Profile.chromaticAberration.enabled = true;
         nitroSound.enabled = true;
-        Debug.Log("work2s");
+
         yield return new WaitForSeconds(NitroDuration);
+
         Controler.m_Topspeed = 55;
         Controler.m_FullTorqueOverAllWheels = 550;
-        Debug.Log("work3s");
-        Nitro = false;
+
         foreach (ParticleSystem particles in nitroParticles)
         {
             var nitroEmission = particles.emission;
             nitroEmission.enabled = false;
         }
+
         nitroSound.enabled = false;
         Profile.chromaticAberration.enabled = false;
     }
 
     void Fire()
     {
-        Debug.Log("works Rocket");
         Instantiate(Missile, transform.position, transform.rotation);
-        Debug.Log("works Rocket2");
-        Rocket = false;
     }
 }

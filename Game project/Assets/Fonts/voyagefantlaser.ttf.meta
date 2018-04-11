@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ec03d72dc0113a24f977626c4208de4c
+timeCreated: 1523457183
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Voyage Fantastique Laser
+  fontNames:
+  - Voyage Fantastique Laser
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

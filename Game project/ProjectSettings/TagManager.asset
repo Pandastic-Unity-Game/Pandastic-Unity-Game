@@ -17,6 +17,12 @@ TagManager:
   - Rocket
   - AI
   - Missile
+  - ExplosionGUI
+  - MineGUI
+  - NitroGUI
+  - ShieldGUI
+  - RocketGUI
+  - Electric
   layers:
   - Default
   - TransparentFX

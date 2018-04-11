@@ -14,7 +14,7 @@ public class PowerUp : MonoBehaviour
     public GameObject RespawnSound;
     public GameObject PickUpSound;
 
-    private string[] powerUps = new string[] {"Nitro", "Shield", "Rocket", "MineBox"};
+    private string[] powerUps = new string[] {"Nitro", "Shield", "Rocket", "MineBox","Electric"};
     private void Start()
     {
         startP = transform.position;

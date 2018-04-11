@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: cbc173ea989a2b544b51a541ede07c5a
+timeCreated: 1523457182
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Voyage Fantastique Chrome
+  fontNames:
+  - Voyage Fantastique Chrome
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015753020900504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 133.58022, y: 124.8814, z: 522.50323}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,3 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860b09ac78c48e74eaaf5fc869ace76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExplosionEffects: {fileID: 1670449994409838, guid: deccd10c125c68b45a2f08a86047b8f6,
+    type: 2}
+  ExplosionSound: {fileID: 1402738661686712, guid: 0b188733d10daa8478b62e8b46ff14a8,
+    type: 2}
+  power: 500
+  radius: 10
+  upforce: 50

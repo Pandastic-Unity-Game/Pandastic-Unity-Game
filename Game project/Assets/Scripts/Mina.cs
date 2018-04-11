@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Mina : MonoBehaviour {
 
-   
-	void Start () {
-      
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
-	}
+    public GameObject ExplosionEffects;
+    public GameObject ExplosionSound;
+
+    public float power = 2f;
+    public float radius = 5f;
+    public float upforce = .5f;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -29,5 +26,23 @@ public class Mina : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void Destroy()
+    {
+        Vector3 explosionPosition = transform.position;
+        Collider[] colliders = Physics.OverlapSphere(explosionPosition, radius);
+        foreach (Collider hit in colliders)
+        {
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce(power, explosionPosition, radius, upforce, ForceMode.Impulse);
+            }
+        }
+
+        Instantiate(ExplosionEffects,transform.position,Quaternion.identity);
+        Instantiate(ExplosionSound, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }

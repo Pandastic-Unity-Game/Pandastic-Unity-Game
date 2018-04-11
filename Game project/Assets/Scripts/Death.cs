@@ -13,6 +13,10 @@ public class Death : MonoBehaviour {
     private Vector3 startP;
     private Quaternion startR;
 
+    public float power = 500f;
+    public float radius = 10f;
+    public float upforce = 100f;
+
     private MeshRenderer[] Meshes;
 
     private Rigidbody car;
@@ -28,6 +32,7 @@ public class Death : MonoBehaviour {
     private My_Power_UP Shieldd;
 
     public bool IsEnemy = false;
+    public bool IsDead = false;
 
     private void Start()
     {
@@ -78,6 +83,7 @@ public class Death : MonoBehaviour {
     }
     void Drown()
     {
+        IsDead = true;
         Instantiate(DrownSound, transform.position, Quaternion.identity);
         respawnBool = true;
         foreach (MeshRenderer mesh in Meshes)
@@ -95,6 +101,18 @@ public class Death : MonoBehaviour {
     }
     void Dead()
     {
+        IsDead = true;
+        Vector3 explosionPosition = transform.position;
+        Collider[] colliders = Physics.OverlapSphere(explosionPosition, radius);
+        foreach (Collider hit in colliders)
+        {
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce(power, explosionPosition, radius, upforce, ForceMode.Impulse);
+            }
+        }
+
         Instantiate(DeathEffect,transform.position,Quaternion.identity);
         Instantiate(DeathSound, transform.position, Quaternion.identity);
         respawnBool = true;
@@ -110,6 +128,7 @@ public class Death : MonoBehaviour {
 
     void Respawn()
     {
+        IsDead = false;
         foreach (MeshRenderer mesh in Meshes)
         {
             mesh.enabled = true;
