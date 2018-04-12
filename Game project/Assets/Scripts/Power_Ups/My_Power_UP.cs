@@ -11,7 +11,6 @@ public class My_Power_UP : MonoBehaviour
     public bool Rocket;
     public bool Nitro;
     public bool Mine;
-    public bool check;
     public bool isElectrified;
     public bool Shield;
     public bool Electric;
@@ -19,13 +18,12 @@ public class My_Power_UP : MonoBehaviour
     // private CarController carcontroller;
     GameObject GameObj;
     public GameObject LandMine;
-    GameObject Seeek;
+    public Transform LandMinePosition;
     private float NitroDuration;
     private float ShieldDuration;
     // int TopSpeed;
     //int ForwardSpeed;
     Rigidbody car;
-    SphereCollider Mina;
     public CarController Controler;
     public float TopSpeed;
     public float NitroSpeed;
@@ -56,17 +54,16 @@ public class My_Power_UP : MonoBehaviour
 
     private bool enableTempShield = false;
 
-    Mina LaMine;
+    private Vector3 position;
+    private Quaternion rotation;
     void Start()
     {
         Nitro = false;
         Mine = false;
         Shield = false;
-        Rocket = false;
         Electric = false;
         ShieldOn = false;
-        check = false;
-        Seeek = GameObject.Find("Seek");
+        Rocket = false;
 
         DeathScript = gameObject.GetComponent<Death>();
 
@@ -82,8 +79,6 @@ public class My_Power_UP : MonoBehaviour
         Profile.chromaticAberration.enabled = false;
 
         nitroParticles = nitroParticlesObject.GetComponentsInChildren<ParticleSystem>();
-        Controler = GameObj.GetComponent<CarController>();
-        Mina = gameObject.GetComponent<SphereCollider>();
         //TopSpeed = Controler.m_Topspeed;
         // NitroSpeed = Speed * 1.5f;
     }
@@ -154,8 +149,7 @@ public class My_Power_UP : MonoBehaviour
 
                     if (Input.GetButton("PowerUp"))
                     {
-                        check = true;
-                        Instantiate(LandMine, Seeek.transform.position, Quaternion.identity);
+                        Instantiate(LandMine, LandMinePosition.position, Quaternion.identity);
                         Mine = false;
                     }
                 }
@@ -214,6 +208,7 @@ public class My_Power_UP : MonoBehaviour
             Nitro = false;
             Shield = false;
             Mine = false;
+            Electric = false;
         }
 
         if (enableTempShield)
@@ -315,6 +310,7 @@ public class My_Power_UP : MonoBehaviour
 
     void Fire()
     {
-        Instantiate(Missile, transform.position, transform.rotation);
+        position = new Vector3(transform.position.x,transform.position.y+1.5f,transform.position.z);
+        Instantiate(Missile, position, transform.rotation,transform);
     }
 }

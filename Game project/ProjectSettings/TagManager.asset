@@ -23,6 +23,7 @@ TagManager:
   - ShieldGUI
   - RocketGUI
   - Electric
+  - ElectricField
   layers:
   - Default
   - TransparentFX

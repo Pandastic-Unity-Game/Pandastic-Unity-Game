@@ -25,14 +25,15 @@ public class Death : MonoBehaviour {
 
     private GameObject Camera;
 
-    private Vector3 directionUp = new Vector3(0,100,0);
-
     public bool boom;
 
     private My_Power_UP Shieldd;
+    private AIPOWERUP ShieldAI;
 
     public bool IsEnemy = false;
     public bool IsDead = false;
+
+    public Vector3 Up = new Vector3(0,-200,0);
 
     private void Start()
     {
@@ -41,46 +42,100 @@ public class Death : MonoBehaviour {
         startP = transform.position;
         startR = transform.rotation;
         boom = false;
-        Shieldd = gameObject.GetComponent<My_Power_UP>();
+        if (IsEnemy)
+        {
+            ShieldAI = gameObject.GetComponent<AIPOWERUP>();
+        }
+        else
+        {
+            Shieldd = gameObject.GetComponent<My_Power_UP>();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Death")
+        if (collision.transform.tag == "Death" || collision.transform.tag == "Missile")
         {
-            Dead();
+            if (IsEnemy)
+            {
+                if (!ShieldAI.ShieldOn)
+                {
+                    Dead();
+                }
+            }
+            else
+            {
+                if (!Shieldd.ShieldOn)
+                {
+                    Dead();
+                }
+            }
         }
 
         else if (collision.transform.tag == "Water")
         {
             Drown();
         }
-
         else if (collision.transform.tag == "Mine")
         {
-            Dead();
-            boom = true;
+            if (IsEnemy)
+            {
+                if (!ShieldAI.ShieldOn)
+                {
+                    Dead();
+                }
+            }
+            else
+            {
+                if (!Shieldd.ShieldOn)
+                {
+                    Dead();
+                }
+            }
         }
-    }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.transform.tag == "ramp" || collision.transform.tag == "Shield" || collision.transform.tag == "Nitro" || collision.transform.tag == "MineBox")
+        if (collision.transform.tag == "Electric" || collision.transform.tag == "Shield" || collision.transform.tag == "Nitro" || collision.transform.tag == "MineBox"
+            || collision.transform.tag == "Rocket" || collision.transform.tag == "Missile" || collision.transform.tag == "ElectricField" || collision.transform.tag == "Mine")
         {
 
         }
-        else if (collision.transform.tag == "Mine")
-        {
-            Dead();
-            boom = true;
-        }      
         else
         {
             Crash();
-            //Dead();
         }
-        
     }
+
+    //private void OnTriggerEnter(Collider collision)
+    //{
+    //    if (collision.transform.tag == "Electric" || collision.transform.tag == "Shield" || collision.transform.tag == "Nitro" || collision.transform.tag == "MineBox"
+    //        || collision.transform.tag == "Rocket" || collision.transform.tag == "Missile" || collision.transform.tag == "ElectricField") 
+    //    {
+
+    //    }
+    //    else if (collision.transform.tag == "Mine")
+    //    {
+    //        if (IsEnemy)
+    //        {
+    //            if (!ShieldAI.ShieldOn)
+    //            {
+    //                Dead();
+    //            }
+    //        }
+    //        else
+    //        {
+    //            if (!Shieldd.ShieldOn)
+    //            {
+    //                Dead();
+    //            }
+    //        }
+    //    }      
+    //    else
+    //    {
+    //        Crash();
+    //        //Dead();
+    //    }
+        
+    //}
     void Drown()
     {
         IsDead = true;
@@ -95,10 +150,12 @@ public class Death : MonoBehaviour {
                           | RigidbodyConstraints.FreezeRotationZ;
         Invoke("Respawn", 3);
     }
+
     void Crash()
     {
         Instantiate(CrashSound, transform.position, Quaternion.identity);
     }
+
     void Dead()
     {
         IsDead = true;
@@ -116,6 +173,11 @@ public class Death : MonoBehaviour {
         Instantiate(DeathEffect,transform.position,Quaternion.identity);
         Instantiate(DeathSound, transform.position, Quaternion.identity);
         respawnBool = true;
+        if (IsEnemy)
+        {
+            transform.position += Up;
+        }
+
         foreach (MeshRenderer mesh in Meshes)
         {
             mesh.enabled = false;

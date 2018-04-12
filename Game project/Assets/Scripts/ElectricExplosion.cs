@@ -16,9 +16,9 @@ public class ElectricExplosion : MonoBehaviour {
 
         if (other.transform.tag == "AI")
         {
-            if (!other.GetComponent<My_Power_UP>().ShieldOn)
+            if (!other.GetComponent<AIPOWERUP>().ShieldOn)
             {
-                other.GetComponent<My_Power_UP>().isElectrified = true;
+                other.GetComponent<AIPOWERUP>().isElectrified = true;
             }
         }
 

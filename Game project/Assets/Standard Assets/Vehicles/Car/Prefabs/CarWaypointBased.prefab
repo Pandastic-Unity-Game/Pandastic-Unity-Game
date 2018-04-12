@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 11400024}
   - component: {fileID: 114668283478937562}
   - component: {fileID: 11400026}
+  - component: {fileID: 114162374135099018}
   - component: {fileID: 64329641824931836}
   - component: {fileID: 65749703928706160}
   m_Layer: 0
@@ -828,7 +829,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100064}
   m_LocalRotation: {x: -0, y: -0.9461503, z: -0, w: 0.32372767}
-  m_LocalPosition: {x: 135.01001, y: 125.17, z: 524.80994}
+  m_LocalPosition: {x: 149.05, y: 125.17, z: 548.27}
   m_LocalScale: {x: 0.49999976, y: 0.5, z: 0.49999976}
   m_Children:
   - {fileID: 400038}
@@ -842,6 +843,7 @@ Transform:
   - {fileID: 4905647035218684}
   - {fileID: 4297816240611626}
   - {fileID: 4804394139335736}
+  - {fileID: 4558795020434840}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -142.223, z: 0}
@@ -5533,6 +5535,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1317757798248714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4558795020434840}
+  - component: {fileID: 135485564713242244}
+  - component: {fileID: 114650296975146614}
+  m_Layer: 0
+  m_Name: ROCKETZONE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1420147091229658
 GameObject:
   m_ObjectHideFlags: 1
@@ -5709,6 +5728,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400064}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4558795020434840
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1317757798248714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 54.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400064}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4679600327261550
 Transform:
@@ -6133,6 +6165,46 @@ MonoBehaviour:
   markWidth: 0.1
   isEnemy: 0
   SkidmarkMaterial: {fileID: 2100000, guid: 8cd9ae63708ab034f9125676c32fd952, type: 2}
+--- !u!114 &114162374135099018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6f79f89ec585c4cadf6927d136fbbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Missile: {fileID: 54441631722321662, guid: ca099224d21d7534eae66ffa26e64408, type: 2}
+  Rocket: 0
+  Nitro: 0
+  Mine: 0
+  isElectrified: 0
+  Shield: 0
+  Electric: 0
+  ShieldOn: 0
+  IsDanger: 0
+  IsRocket: 0
+  LandMine: {fileID: 1015753020900504, guid: d605bc1ba2550ac469e1c4f5e4628e75, type: 2}
+  LandMinePosition: {fileID: 4014503713018296}
+  Controler: {fileID: 11400020}
+  TopSpeed: 0
+  NitroSpeed: 0
+  shieldParticles: {fileID: 198579735156817918}
+  eletricParticles: {fileID: 198214822233399116}
+  nitroParticlesObject: {fileID: 1292009056526966}
+  electricExplosionParticles: {fileID: 1094065191020512, guid: f3a22afdb810ff4458c09fefb85d9d48,
+    type: 2}
+  electricExplosionSound: {fileID: 1892863486362138, guid: 3a143a93f6b8b904cb12edd77f357eb6,
+    type: 2}
+  electricExplosionSphere: {fileID: 1516676965559032, guid: 5858d7bd82d279c4fb4acd9fab469780,
+    type: 2}
+  shieldSound: {fileID: 82023410886468344}
+  electifiedSound: {fileID: 82163318920990616}
+  nitroSound: {fileID: 82211814228987114}
+  radius: 12
+  Sphere: {fileID: 1750918198789428, guid: e4a93acb7ea5eb94e91354d9dc7c4996, type: 2}
 --- !u!114 &114313922442814948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6161,6 +6233,17 @@ MonoBehaviour:
   markWidth: 0.1
   isEnemy: 0
   SkidmarkMaterial: {fileID: 2100000, guid: 8cd9ae63708ab034f9125676c32fd952, type: 2}
+--- !u!114 &114650296975146614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1317757798248714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df622422a24f26f4089ef649fe35971d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114668283478937562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6187,6 +6270,7 @@ MonoBehaviour:
   boom: 0
   IsEnemy: 1
   IsDead: 0
+  Up: {x: 0, y: -200, z: 0}
 --- !u!114 &114931095847537382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6201,6 +6285,18 @@ MonoBehaviour:
   markWidth: 0.1
   isEnemy: 0
   SkidmarkMaterial: {fileID: 2100000, guid: 8cd9ae63708ab034f9125676c32fd952, type: 2}
+--- !u!135 &135485564713242244
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1317757798248714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 25
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198153685032344258
 ParticleSystem:
   m_ObjectHideFlags: 1
