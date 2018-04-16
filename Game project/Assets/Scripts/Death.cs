@@ -103,6 +103,8 @@ public class Death : MonoBehaviour {
         {
             Crash();
         }
+
+
     }
 
     //private void OnTriggerEnter(Collider collision)

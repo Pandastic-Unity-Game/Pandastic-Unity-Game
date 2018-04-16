@@ -616,8 +616,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1074726354343452}
-  m_LocalRotation: {x: -0, y: -0.9400386, z: -0, w: 0.34106812}
-  m_LocalPosition: {x: 133.6, y: 124.80912, z: 529.99}
+  m_LocalRotation: {x: 0.0019928506, y: -0.94041795, z: -0.00014285825, w: 0.34001487}
+  m_LocalPosition: {x: 132.63641, y: 124.8099, z: 530.48376}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4914764288630294}
@@ -634,7 +634,7 @@ Transform:
   - {fileID: 4090864002455084}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -140.11601, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.062000003, y: -140.244, z: -0.22000001}
 --- !u!4 &4027938394701870
 Transform:
   m_ObjectHideFlags: 1
@@ -1220,7 +1220,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 80c07045dd4550446868d76b2d1e9e4c, type: 2}
   - {fileID: 2100000, guid: 08313a0248858054f82230650028defa, type: 2}
-  - {fileID: 2100000, guid: e0d0c009dbfab5347922ef3563a6da38, type: 2}
+  - {fileID: 2100000, guid: ca8e5a2399bde7a409418e79289d075f, type: 2}
   - {fileID: 2100000, guid: 9c32850b482327645bf9cbc26c6b5715, type: 2}
   - {fileID: 2100000, guid: d95d603ffb384104bbd6717096bef616, type: 2}
   m_StaticBatchInfo:
@@ -2370,6 +2370,8 @@ MonoBehaviour:
   ShieldOn: 0
   LandMine: {fileID: 1015753020900504, guid: d605bc1ba2550ac469e1c4f5e4628e75, type: 2}
   LandMinePosition: {fileID: 4874674352733808}
+  NitroDuration: 0
+  ShieldDuration: 0
   Controler: {fileID: 114353149167767736}
   TopSpeed: 0
   NitroSpeed: 0

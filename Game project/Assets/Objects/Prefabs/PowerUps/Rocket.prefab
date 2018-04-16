@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 65179145301426114}
   - component: {fileID: 114477755015774152}
   - component: {fileID: 54441631722321662}
+  - component: {fileID: 82863346604091266}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Missile
@@ -96,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1730686852351832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 172.26491, y: 125.64, z: 521.253}
+  m_LocalPosition: {x: 146.48389, y: 124.97711, z: 517.7383}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4009342729399134}
@@ -172,6 +173,117 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.95, y: 0.5, z: 1.23}
   m_Center: {x: 0, y: 0, z: 0.09}
+--- !u!82 &82863346604091266
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730686852351832}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 8eefd7cf734e30a49833f8073a5d715b,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 7c8bfd94fe300d94395adb737ce68a06, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 120
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 70
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.13226286
+      value: 1.0166664
+      inSlope: -70.02799
+      outSlope: -70.02799
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.14654857
+      value: 0.5166664
+      inSlope: -17.506998
+      outSlope: -17.506998
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.17512
+      value: 0.2666664
+      inSlope: -4.3767495
+      outSlope: -4.3767495
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.23226285
+      value: 0.14166641
+      inSlope: -1.0941874
+      outSlope: -1.0941874
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.34654856
+      value: 0.07916641
+      inSlope: -0.27354684
+      outSlope: -0.27354684
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.57512
+      value: 0.047916412
+      inSlope: -0.06838671
+      outSlope: -0.06838671
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.030952126
+      inSlope: -0.014291424
+      outSlope: -0.014291424
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.11797714
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.11797714
+      value: 0.016666412
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.11797714
+      value: 1.0166664
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114477755015774152
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -19,8 +19,8 @@ public class AIPOWERUP : MonoBehaviour {
     GameObject GameObj;
     public GameObject LandMine;
     public Transform LandMinePosition;
-    private float NitroDuration;
-    private float ShieldDuration;
+    public float NitroDuration;
+    public float ShieldDuration;
     // int TopSpeed;
     //int ForwardSpeed;
     Rigidbody car;
@@ -245,7 +245,7 @@ public class AIPOWERUP : MonoBehaviour {
             else if (hit.tag == "AI")
             {
                 z++;
-                if (z >=3)
+                if (z >=2)
                 {
                     IsDanger = true;
                 }
@@ -256,60 +256,6 @@ public class AIPOWERUP : MonoBehaviour {
             }
         }
         z = 0;
-
-    }
-
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.transform.tag == "Nitro")
-        {
-            Nitro = true;
-            Mine = false;
-            Shield = false;
-            Electric = false;
-            Rocket = false;
-            NitroDuration = 5f;
-            //  Controler.m_Topspeed = NitroSpeed;
-        }
-        if (collision.transform.tag == "MineBox")
-        {
-            Nitro = false;
-            Shield = false;
-            Mine = true;
-            Rocket = false;
-            Electric = false;
-        }
-
-        if (collision.transform.tag == "Shield")
-        {
-            Nitro = false;
-            Mine = false;
-            Shield = true;
-            Rocket = false;
-            Electric = false;
-            ShieldDuration = 5f;
-        }
-
-        if (collision.transform.tag == "Rocket")
-        {
-            Nitro = false;
-            Mine = false;
-            Shield = false;
-            Rocket = true;
-            Electric = false;
-            //NitroDuration = 5.0f;
-            //Controler.m_Topspeed = NitroSpeed;
-        }
-
-        if (collision.transform.tag == "Electric")
-        {
-            Nitro = false;
-            Mine = false;
-            Shield = false;
-            Rocket = false;
-            Electric = true;
-        }
 
     }
 
