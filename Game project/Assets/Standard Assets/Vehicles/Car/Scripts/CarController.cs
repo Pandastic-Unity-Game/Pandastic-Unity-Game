@@ -71,7 +71,10 @@ namespace UnityStandardAssets.Vehicles.Car
             m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
         }
-
+        private void Update()
+        {
+            Dinamic_Steering();
+        }
 
         private void GearChanging()
         {
@@ -363,6 +366,32 @@ namespace UnityStandardAssets.Vehicles.Car
                 }
             }
             return false;
+        }
+        private void Dinamic_Steering()
+        {
+
+            float speed = m_Rigidbody.velocity.magnitude * 3.6f;
+            if (speed < 10)
+            {
+                m_MaximumSteerAngle = 30;
+            }
+            else if(speed < 30)
+            {
+                m_MaximumSteerAngle = 15;
+            }
+            else if(speed < 50)
+            {
+                m_MaximumSteerAngle = 12;
+            }
+            else if(speed < 70)
+            {
+                m_MaximumSteerAngle = 10;
+            }
+            else
+            {
+                m_MaximumSteerAngle = 8;
+            }
+
         }
     }
 }
