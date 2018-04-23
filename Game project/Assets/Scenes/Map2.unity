@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.75
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 848267412}
-  m_IndirectSpecularColor: {r: 0.59484726, g: 0.7126216, b: 0.7792709, a: 0.75}
+  m_IndirectSpecularColor: {r: 0.5948938, g: 0.71265364, b: 0.7792671, a: 0.75}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -194,6 +194,21 @@ MonoBehaviour:
   countDownTimer: {fileID: 811739961}
   Controler: {fileID: 2337561}
   time: {fileID: 1080026765}
+--- !u!114 &2337555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2337553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83e8039c6287644dad1b1928d8358f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWaypoint: 0
+  currentLap: 0
+  lastWaypoint: {fileID: 683824931}
+  nbWaypoint: 14
 --- !u!114 &2337561 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114926989713606306, guid: ecff12bdd75dab54abed0e454198ea64,
@@ -2952,7 +2967,7 @@ GameObject:
   - component: {fileID: 158654393}
   - component: {fileID: 158654392}
   m_Layer: 0
-  m_Name: Cube (12)
+  m_Name: 13
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3669,7 +3684,7 @@ GameObject:
   - component: {fileID: 206790371}
   - component: {fileID: 206790370}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: 3
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3686,7 +3701,7 @@ Transform:
   m_LocalScale: {x: 15, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 683824931}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -70, z: 0}
 --- !u!23 &206790370
 MeshRenderer:
@@ -5254,7 +5269,7 @@ GameObject:
   - component: {fileID: 298336486}
   - component: {fileID: 298336485}
   m_Layer: 0
-  m_Name: Cube (13)
+  m_Name: 14
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6572,7 +6587,7 @@ GameObject:
   - component: {fileID: 414678908}
   - component: {fileID: 414678907}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: 2
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6589,7 +6604,7 @@ Transform:
   m_LocalScale: {x: 90, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 683824931}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -20, z: 0}
 --- !u!23 &414678907
 MeshRenderer:
@@ -7913,7 +7928,7 @@ GameObject:
   - component: {fileID: 540653972}
   - component: {fileID: 540653971}
   m_Layer: 0
-  m_Name: Cube (11)
+  m_Name: 12
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8315,7 +8330,7 @@ GameObject:
   - component: {fileID: 586565445}
   - component: {fileID: 586565444}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: 5
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8332,7 +8347,7 @@ Transform:
   m_LocalScale: {x: 15, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 683824931}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 160, z: 0}
 --- !u!23 &586565444
 MeshRenderer:
@@ -9174,6 +9189,21 @@ MonoBehaviour:
   countDownTimer: {fileID: 811739961}
   Controler: {fileID: 645608810}
   time: {fileID: 1080026765}
+--- !u!114 &645608804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 645608802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83e8039c6287644dad1b1928d8358f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWaypoint: 0
+  currentLap: 0
+  lastWaypoint: {fileID: 683824931}
+  nbWaypoint: 14
 --- !u!114 &645608810 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114022625026414526, guid: 980cf78e263e24b47a914285e2df4a7d,
@@ -9423,7 +9453,7 @@ GameObject:
   - component: {fileID: 659554781}
   - component: {fileID: 659554780}
   m_Layer: 0
-  m_Name: Cube (7)
+  m_Name: 8
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10087,11 +10117,11 @@ Transform:
   m_LocalPosition: {x: 115.88869, y: 120.252945, z: 521.62054}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 206790369}
   - {fileID: 2061708798}
   - {fileID: 414678906}
-  - {fileID: 586565443}
+  - {fileID: 206790369}
   - {fileID: 743034870}
+  - {fileID: 586565443}
   - {fileID: 1347075762}
   - {fileID: 1866421218}
   - {fileID: 659554779}
@@ -10575,7 +10605,7 @@ GameObject:
   - component: {fileID: 743034872}
   - component: {fileID: 743034871}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: 4
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10587,12 +10617,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 743034869}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -91.17, y: -1.62, z: 36}
-  m_LocalScale: {x: 20, y: 10, z: 1}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -91.17, y: -1.6200027, z: 36}
+  m_LocalScale: {x: 46.994244, y: 10, z: 2.349712}
   m_Children: []
   m_Father: {fileID: 683824931}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!23 &743034871
 MeshRenderer:
@@ -10994,6 +11024,80 @@ MeshCollider:
 Transform:
   m_PrefabParentObject: {fileID: 400008, guid: ca6a542169d8e474aa2c2cb47423839a, type: 2}
   m_PrefabInternal: {fileID: 760025334}
+--- !u!1 &760840850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 760840851}
+  - component: {fileID: 760840853}
+  - component: {fileID: 760840852}
+  m_Layer: 5
+  m_Name: Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &760840851
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 760840850}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1867866735}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 326.8, y: 161.6}
+  m_SizeDelta: {x: 97.4, y: 79.9}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &760840852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 760840850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 60
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 6
+    m_MaxSize: 60
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &760840853
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 760840850}
 --- !u!1 &761922158
 GameObject:
   m_ObjectHideFlags: 0
@@ -12508,7 +12612,7 @@ GameObject:
   - component: {fileID: 913483573}
   - component: {fileID: 913483572}
   m_Layer: 0
-  m_Name: Cube (10)
+  m_Name: 11
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14219,6 +14323,21 @@ GameObject:
   m_PrefabParentObject: {fileID: 1074726354343452, guid: 69f37ccf46f64df4287c192519970459,
     type: 2}
   m_PrefabInternal: {fileID: 186796860}
+--- !u!114 &1080026762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1080026761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83e8039c6287644dad1b1928d8358f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWaypoint: 0
+  currentLap: 0
+  lastWaypoint: {fileID: 683824931}
+  nbWaypoint: 14
 --- !u!114 &1080026765 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114216813073625356, guid: 69f37ccf46f64df4287c192519970459,
@@ -15923,7 +16042,7 @@ GameObject:
   - component: {fileID: 1254677542}
   - component: {fileID: 1254677541}
   m_Layer: 0
-  m_Name: Cube (8)
+  m_Name: 9
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17186,7 +17305,7 @@ GameObject:
   - component: {fileID: 1347075764}
   - component: {fileID: 1347075763}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: 6
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17543,6 +17662,21 @@ MonoBehaviour:
   countDownTimer: {fileID: 811739961}
   Controler: {fileID: 1384269341}
   time: {fileID: 1080026765}
+--- !u!114 &1384269335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1384269333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83e8039c6287644dad1b1928d8358f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWaypoint: 0
+  currentLap: 0
+  lastWaypoint: {fileID: 683824931}
+  nbWaypoint: 14
 --- !u!114 &1384269341 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114382183716272700, guid: ac6832c05eff3d24c9d7e12a5c59ff38,
@@ -18328,8 +18462,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1425101222}
-  m_LocalRotation: {x: 0.11067995, y: 0.09013556, z: 0.010080893, w: -0.989709}
-  m_LocalPosition: {x: 125.25753, y: 39.063812, z: 480.6652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 311.4143, y: 32.281982, z: -1038.2845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -20802,7 +20936,7 @@ GameObject:
   - component: {fileID: 1710110282}
   - component: {fileID: 1710110281}
   m_Layer: 0
-  m_Name: Cube (9)
+  m_Name: 10
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21563,6 +21697,21 @@ MonoBehaviour:
   countDownTimer: {fileID: 811739961}
   Controler: {fileID: 1815668468}
   time: {fileID: 1080026765}
+--- !u!114 &1815668462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1815668460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83e8039c6287644dad1b1928d8358f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWaypoint: 0
+  currentLap: 0
+  lastWaypoint: {fileID: 683824931}
+  nbWaypoint: 14
 --- !u!114 &1815668468 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114945166997655400, guid: 7b2ae476daa1a7b4893527ce8e0d9871,
@@ -22078,7 +22227,7 @@ GameObject:
   - component: {fileID: 1866421220}
   - component: {fileID: 1866421219}
   m_Layer: 0
-  m_Name: Cube (6)
+  m_Name: 7
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22164,6 +22313,7 @@ GameObject:
   - component: {fileID: 1867866732}
   - component: {fileID: 1867866731}
   - component: {fileID: 1867866730}
+  - component: {fileID: 1867866736}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -22278,6 +22428,7 @@ RectTransform:
   - {fileID: 657826225}
   - {fileID: 1288047601}
   - {fileID: 811739958}
+  - {fileID: 760840851}
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22286,6 +22437,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1867866736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1867866729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d6fccf8c08035e4082ab48a2419fcfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allCars:
+  - {fileID: 1884674012}
+  - {fileID: 1815668462}
+  - {fileID: 2337555}
+  - {fileID: 1384269335}
+  - {fileID: 645608804}
+  - {fileID: 2116515500}
+  - {fileID: 1080026762}
+  carOrder:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &1868471007
 Prefab:
   m_ObjectHideFlags: 0
@@ -22592,6 +22770,21 @@ MonoBehaviour:
   countDownTimer: {fileID: 811739961}
   Controler: {fileID: 1884674018}
   time: {fileID: 1080026765}
+--- !u!114 &1884674012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1884674010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83e8039c6287644dad1b1928d8358f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWaypoint: 0
+  currentLap: 0
+  lastWaypoint: {fileID: 683824931}
+  nbWaypoint: 14
 --- !u!114 &1884674018 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114999373114502762, guid: 1083edd73a36b254fad7fb2c0c6fcd5d,
@@ -25071,7 +25264,7 @@ GameObject:
   - component: {fileID: 2061708800}
   - component: {fileID: 2061708799}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: 1
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25088,7 +25281,7 @@ Transform:
   m_LocalScale: {x: 30, y: 10, z: 0.5}
   m_Children: []
   m_Father: {fileID: 683824931}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 250, z: 0}
 --- !u!23 &2061708799
 MeshRenderer:
@@ -26064,6 +26257,21 @@ MonoBehaviour:
   countDownTimer: {fileID: 811739961}
   Controler: {fileID: 2116515506}
   time: {fileID: 1080026765}
+--- !u!114 &2116515500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2116515498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83e8039c6287644dad1b1928d8358f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWaypoint: 0
+  currentLap: 0
+  lastWaypoint: {fileID: 683824931}
+  nbWaypoint: 14
 --- !u!114 &2116515506 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114450911264599848, guid: 81e7bdbd9552ca64fa86dd333c2c70ef,
