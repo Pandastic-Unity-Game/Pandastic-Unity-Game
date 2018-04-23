@@ -12,6 +12,9 @@ public class Death : MonoBehaviour {
     public GameObject DrownSound;
     private Vector3 startP;
     private Quaternion startR;
+    //private GameObject CheckP;
+    public Vector3 CheckPo;
+    public Quaternion CheckPointR;
 
     public float power = 500f;
     public float radius = 10f;
@@ -41,6 +44,8 @@ public class Death : MonoBehaviour {
         Meshes = gameObject.GetComponentsInChildren<MeshRenderer>();
         startP = transform.position;
         startR = transform.rotation;
+        CheckPo = startP;
+        CheckPointR = startR;
         boom = false;
         if (IsEnemy)
         {
@@ -103,41 +108,46 @@ public class Death : MonoBehaviour {
         {
             Crash();
         }
-
+       
 
     }
 
-    //private void OnTriggerEnter(Collider collision)
-    //{
-    //    if (collision.transform.tag == "Electric" || collision.transform.tag == "Shield" || collision.transform.tag == "Nitro" || collision.transform.tag == "MineBox"
-    //        || collision.transform.tag == "Rocket" || collision.transform.tag == "Missile" || collision.transform.tag == "ElectricField") 
-    //    {
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.transform.tag == "CheckPoint")
+        {
+            CheckPo = collision.transform.position;
+            CheckPointR = collision.transform.rotation;
+        }
+        //    if (collision.transform.tag == "Electric" || collision.transform.tag == "Shield" || collision.transform.tag == "Nitro" || collision.transform.tag == "MineBox"
+        //        || collision.transform.tag == "Rocket" || collision.transform.tag == "Missile" || collision.transform.tag == "ElectricField") 
+        //    {
 
-    //    }
-    //    else if (collision.transform.tag == "Mine")
-    //    {
-    //        if (IsEnemy)
-    //        {
-    //            if (!ShieldAI.ShieldOn)
-    //            {
-    //                Dead();
-    //            }
-    //        }
-    //        else
-    //        {
-    //            if (!Shieldd.ShieldOn)
-    //            {
-    //                Dead();
-    //            }
-    //        }
-    //    }      
-    //    else
-    //    {
-    //        Crash();
-    //        //Dead();
-    //    }
-        
-    //}
+        //    }
+        //    else if (collision.transform.tag == "Mine")
+        //    {
+        //        if (IsEnemy)
+        //        {
+        //            if (!ShieldAI.ShieldOn)
+        //            {
+        //                Dead();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (!Shieldd.ShieldOn)
+        //            {
+        //                Dead();
+        //            }
+        //        }
+        //    }      
+        //    else
+        //    {
+        //        Crash();
+        //        //Dead();
+        //    }
+
+    }
     void Drown()
     {
         IsDead = true;
@@ -197,8 +207,8 @@ public class Death : MonoBehaviour {
         {
             mesh.enabled = true;
         }
-        transform.position = startP;
-        transform.rotation = startR;
+        transform.position = CheckPo;
+        transform.rotation = CheckPointR;
         car.constraints = RigidbodyConstraints.None;
         Instantiate(RespawnEffect,transform.position,Quaternion.identity);
         Instantiate(RespawnSound,transform.position,Quaternion.identity);

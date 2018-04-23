@@ -24,6 +24,7 @@ TagManager:
   - RocketGUI
   - Electric
   - ElectricField
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

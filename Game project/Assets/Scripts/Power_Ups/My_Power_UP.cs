@@ -194,7 +194,7 @@ public class My_Power_UP : MonoBehaviour
                 electricDuration -= Time.deltaTime;
                 electrifiedEmission.enabled = true;
                 electifiedSound.enabled = true;
-
+            ////////////
                 if (electricDuration <= 0)
                 {
                     isElectrified = false;
