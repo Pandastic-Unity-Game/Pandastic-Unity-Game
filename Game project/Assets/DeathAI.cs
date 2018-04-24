@@ -40,7 +40,7 @@ public class DeathAI : MonoBehaviour {
     private Rigidbody rb;
     public float speed = 0;
     public bool resett = false;
-    private float startTime;
+    public Transform target;
 
     private void Reset()
     {
@@ -244,6 +244,8 @@ public class DeathAI : MonoBehaviour {
     }
     private void Update()
     {
+        
+        CheckPo = target.transform.position;
         if (!IsEnemy)
         {
             if (Input.GetButtonDown("Respawn"))
