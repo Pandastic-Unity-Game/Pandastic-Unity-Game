@@ -7,7 +7,7 @@ using System.Collections;
 
 public class Timer : MonoBehaviour {
 
-    
+
     private float startTime;
     public Text timerText;
     private bool showTimer = false;
