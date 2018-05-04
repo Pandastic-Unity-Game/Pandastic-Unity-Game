@@ -246,6 +246,7 @@ public class DeathAI : MonoBehaviour {
     {
         
         CheckPo = target.transform.position;
+        CheckPointR = target.transform.rotation;
         if (!IsEnemy)
         {
             if (Input.GetButtonDown("Respawn"))
