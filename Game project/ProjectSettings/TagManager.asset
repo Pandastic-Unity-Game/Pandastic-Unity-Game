@@ -25,6 +25,7 @@ TagManager:
   - Electric
   - ElectricField
   - CheckPoint
+  - Datas
   layers:
   - Default
   - TransparentFX
