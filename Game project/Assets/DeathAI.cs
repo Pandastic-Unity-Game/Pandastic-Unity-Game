@@ -238,15 +238,14 @@ public class DeathAI : MonoBehaviour {
     {
         respawnBool = false;
     }
+
     private bool Tikrinimas(float t)
     {
         return true;
     }
+
     private void Update()
     {
-        
-        CheckPo = target.transform.position;
-        CheckPointR = target.transform.rotation;
         if (!IsEnemy)
         {
             if (Input.GetButtonDown("Respawn"))
