@@ -43,7 +43,7 @@ public class AIPOWERUP : MonoBehaviour {
     public AudioSource electifiedSound;
     public AudioSource nitroSound;
 
-    private Death DeathScript;
+    private DeathAI DeathScript;
 
     private bool enableTempShield = false;
     private bool countDown = false;
@@ -68,7 +68,7 @@ public class AIPOWERUP : MonoBehaviour {
         ShieldOn = false;
         Rocket = false;
 
-        DeathScript = gameObject.GetComponent<Death>();
+        DeathScript = gameObject.GetComponent<DeathAI>();
 
         nitroSound.enabled = false;
         shieldSound.enabled = false;

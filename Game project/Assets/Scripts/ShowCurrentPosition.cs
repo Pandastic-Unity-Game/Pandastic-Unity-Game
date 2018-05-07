@@ -7,21 +7,34 @@ public class ShowCurrentPosition : MonoBehaviour {
 
     public Text currentPosition;
     public Positions position;
-    public string tag;
+
     // Use this for initialization
     void Start () {
-		currentPosition = GetComponent<Text>();
-        currentPosition.text = "0";
-        
+        currentPosition.text = "0th";
     }
 	
 	// Update is called once per frame
 	void Update () {
         for (int i = 0; i < position.carOrder.Length; i++)
         {
-            if (position.carOrder[i].tag == tag)
+            if (position.carOrder[i].tag == "Player")
             {
-                currentPosition.text = (i + 1).ToString();
+                if (i+1 == 1)
+                {
+                    currentPosition.text = (i + 1).ToString()+"st";
+                }
+                else if (i+1 == 2)
+                {
+                    currentPosition.text = (i + 1).ToString() + "nd";
+                }
+                else if (i+1 == 3)
+                {
+                    currentPosition.text = (i + 1).ToString() + "rd";
+                }
+                else
+                {
+                    currentPosition.text = (i + 1).ToString() + "th";
+                }
             }
         }
 	}

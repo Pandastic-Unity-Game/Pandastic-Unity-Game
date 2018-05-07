@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1094065191020512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.9791956, y: 41.498695, z: -78.05392}
+  m_LocalPosition: {x: 42.241768, y: 105.78653, z: 467.62125}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4015533527140658}
@@ -185,9 +185,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1092512252890876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10fd8198e56280e4fbd360784b1e5430, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cd93b11fe7cdb74a8ec67ae1b061da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTime: 2
 --- !u!114 &114537687917875734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -196,10 +197,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1092512252890876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90be42822213692408f25be3251502be, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bc47cb5c061b7046822932ef376daef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 0.5
 --- !u!135 &135653698110442348
 SphereCollider:
   m_ObjectHideFlags: 1
