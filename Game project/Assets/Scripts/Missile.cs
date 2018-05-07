@@ -29,7 +29,7 @@ public class Missile : MonoBehaviour {
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Player" || collision.transform.tag == "AI")
+        if (collision.transform.tag == "LOL" || collision.transform.tag == "AI")
         {
             Destroy(gameObject);
         }

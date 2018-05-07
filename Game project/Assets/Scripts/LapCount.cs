@@ -5,13 +5,20 @@ using UnityEngine.UI;
 
 public class LapCount : MonoBehaviour {
     public Text CurrentLap;
+    private GameObject Player;
     private CarPosition lap;
 
     private GameObject Decision;
     private RaceDontDestroy Data;
     // Use this for initialization
     void Start () {
-        lap = GameObject.FindGameObjectWithTag("Player").GetComponent<CarPosition>();
+        Invoke("find",1);
+    }
+
+    void find()
+    {
+        Player = GameObject.FindGameObjectWithTag("LOL");
+        lap = Player.GetComponent<CarPosition>();
 
         Decision = GameObject.FindGameObjectWithTag("Datas");
         Data = Decision.GetComponent<RaceDontDestroy>();

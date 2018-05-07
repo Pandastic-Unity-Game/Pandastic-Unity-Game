@@ -13,6 +13,8 @@ public class Positions : MonoBehaviour {
     private CarPosition Player;
     private GameObject[] Enemies;
 
+    public int playerPos;
+
     // Use this for initialization
     void Start () {
         Invoke("Find",1);
@@ -20,7 +22,7 @@ public class Positions : MonoBehaviour {
 
     void Find()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<CarPosition>();
+        Player = GameObject.FindGameObjectWithTag("LOL").GetComponent<CarPosition>();
         Enemies = GameObject.FindGameObjectsWithTag("AI").OrderBy(go => go.name).ToArray();
         Decision = GameObject.FindGameObjectWithTag("Datas").GetComponent<RaceDontDestroy>();
         // set up the car objects
@@ -47,6 +49,10 @@ public class Positions : MonoBehaviour {
         foreach (CarPosition car in allCars)
         {
             carOrder[car.GetCarPosition(allCars) - 1] = car;
+            if (car.tag == "LOL")
+            {
+                playerPos = car.GetCarPosition(allCars);
+            }
         }
     }
 }

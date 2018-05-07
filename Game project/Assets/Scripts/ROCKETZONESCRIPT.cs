@@ -12,7 +12,7 @@ public class ROCKETZONESCRIPT : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Player" || other.transform.tag == "AI")
+        if (other.transform.tag == "LOL" || other.transform.tag == "AI")
         {
             PowerScript.IsRocket = true;
         }

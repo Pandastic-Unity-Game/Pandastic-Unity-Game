@@ -14,36 +14,35 @@ public class ShowCurrentPosition : MonoBehaviour {
 
     private bool set = false;
 
+    private Positions Positions;
+
     // Use this for initialization
     void Start () {
         currentPosition.text = "0th";
         GOMenu = GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<GameOverMenu>();
         set = false;
+
+        Positions = GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<Positions>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        for (int i = 0; i < position.carOrder.Length; i++)
+
+        if (Positions.playerPos == 1)
         {
-            if (position.carOrder[i].tag == "Player")
-            {
-                if (i+1 == 1)
-                {
-                    currentPosition.text = (i + 1).ToString()+"st";
-                }
-                else if (i+1 == 2)
-                {
-                    currentPosition.text = (i + 1).ToString() + "nd";
-                }
-                else if (i+1 == 3)
-                {
-                    currentPosition.text = (i + 1).ToString() + "rd";
-                }
-                else
-                {
-                    currentPosition.text = (i + 1).ToString() + "th";
-                }
-            }
+            currentPosition.text = "1st";
+        }
+        else if (Positions.playerPos == 2)
+        {
+            currentPosition.text = "2nd";
+        }
+        else if (Positions.playerPos == 3)
+        {
+            currentPosition.text = "3rd";
+        }
+        else
+        {
+            currentPosition.text = Positions.playerPos.ToString() + "th";
         }
 
         if (GOMenu.GameIsOver && !set)

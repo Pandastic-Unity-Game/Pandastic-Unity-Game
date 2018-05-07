@@ -40,6 +40,11 @@ TagManager:
   - PowerUpCanvas
   - MinimapCanvas
   - Waypoint
+  - LOL
+  - Sphere
+  - MinuteOver
+  - SecondOver
+  - MiliOver
   layers:
   - Default
   - TransparentFX

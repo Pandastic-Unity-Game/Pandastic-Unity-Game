@@ -25,11 +25,6 @@ public class CarPosition : MonoBehaviour {
         currentLap = 0;
         cpt_waypoint = 0;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void OnTriggerEnter(Collider other)
     {

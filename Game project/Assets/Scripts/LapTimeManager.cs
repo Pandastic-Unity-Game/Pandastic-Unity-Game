@@ -11,7 +11,7 @@ public class LapTimeManager : MonoBehaviour {
     public static float MilliCount;
     public static string MilliDisplay;
 
-	private Text MinuteBox;
+    private Text MinuteBox;
     private Text SecondBox;
     private Text MilliBox;
 
