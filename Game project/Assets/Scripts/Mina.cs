@@ -13,7 +13,7 @@ public class Mina : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "LOL" || collision.transform.tag == "AI")
+        if (collision.transform.tag == "Player" || collision.transform.tag == "AI")
         {
             Destroy(this.gameObject);
         }
@@ -22,7 +22,7 @@ public class Mina : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "LOL" || other.transform.tag == "AI")
+        if (other.transform.tag == "Player" || other.transform.tag == "AI")
         {
             Destroy(this.gameObject);
         }

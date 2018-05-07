@@ -429,13 +429,14 @@ GameObject:
   - component: {fileID: 114508801954619604}
   - component: {fileID: 114817146538647298}
   - component: {fileID: 114837387835466174}
-  - component: {fileID: 114902259125938618}
   - component: {fileID: 114082618346261090}
+  - component: {fileID: 65956180349926496}
+  - component: {fileID: 114902259125938618}
   - component: {fileID: 65852517393528018}
   - component: {fileID: 65592523470273584}
   m_Layer: 0
   m_Name: Car (4)
-  m_TagString: LOL
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1358,6 +1359,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.62, y: 0.56, z: 4.61}
   m_Center: {x: 0, y: 0.78, z: -0.31}
+--- !u!65 &65956180349926496
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839247529472634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 2.3, y: 0.57, z: 4.66}
+  m_Center: {x: 0, y: 0.85, z: -0.1}
 --- !u!81 &81865837150346430
 AudioListener:
   m_ObjectHideFlags: 1
@@ -2149,7 +2162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681e833fd88922243be8e7051ea1d183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnemy: 0
 --- !u!114 &114098351320898306
 MonoBehaviour:
   m_ObjectHideFlags: 1

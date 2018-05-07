@@ -6,7 +6,7 @@ public class ElectricExplosion : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "LOL")
+        if (other.transform.tag == "Player")
         {
             if (!other.GetComponent<My_Power_UP>().ShieldOn)
             {

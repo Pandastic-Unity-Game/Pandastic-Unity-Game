@@ -191,9 +191,6 @@ GameObject:
   - component: {fileID: 114437424466023260}
   - component: {fileID: 114354865842297538}
   - component: {fileID: 114768467134751084}
-  - component: {fileID: 114619407125909028}
-  - component: {fileID: 114566871634640836}
-  - component: {fileID: 114900601715208320}
   - component: {fileID: 65927019969630684}
   - component: {fileID: 65973985637634788}
   m_Layer: 0
@@ -380,24 +377,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1629392627059030
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4028794601916248}
-  - component: {fileID: 33192914562455468}
-  - component: {fileID: 136892522166372316}
-  - component: {fileID: 23504043947066566}
-  m_Layer: 8
-  m_Name: Minimap Icon (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1677472647752556
 GameObject:
   m_ObjectHideFlags: 1
@@ -474,7 +453,6 @@ GameObject:
   - component: {fileID: 4328796704822130}
   - component: {fileID: 135604862395187580}
   - component: {fileID: 114862254827369322}
-  - component: {fileID: 54689743560095696}
   m_Layer: 0
   m_Name: ROCKETZONE
   m_TagString: Untagged
@@ -581,19 +559,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4028794601916248
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1629392627059030}
-  m_LocalRotation: {x: -0.0017185616, y: 0.9664267, z: -0.0010190231, w: 0.25693503}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 20.000055, y: 0.0009999998, z: 20.000067}
-  m_Children: []
-  m_Father: {fileID: 4165990353861450}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4044393293184060
 Transform:
   m_ObjectHideFlags: 1
@@ -692,8 +657,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281923826546700}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.9461503, z: -0, w: 0.32372767}
+  m_LocalPosition: {x: 134.22, y: 124.95, z: 526.02}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4272816511110162}
@@ -708,10 +673,9 @@ Transform:
   - {fileID: 4448034346406896}
   - {fileID: 4328796704822130}
   - {fileID: 4400073678553740}
-  - {fileID: 4028794601916248}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -142.223, z: 0}
 --- !u!4 &4232050455575212
 Transform:
   m_ObjectHideFlags: 1
@@ -1162,40 +1126,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!23 &23504043947066566
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1629392627059030}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 5308f5a8f638d724b97dc2281aafc3ff, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!23 &23733541610740338
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -1264,13 +1194,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33192914562455468
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1629392627059030}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33196948372134906
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -1318,21 +1241,6 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!54 &54689743560095696
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1843418571658872}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2199,18 +2107,6 @@ MonoBehaviour:
   markWidth: 0.1
   isEnemy: 0
   SkidmarkMaterial: {fileID: 2100000, guid: 8cd9ae63708ab034f9125676c32fd952, type: 2}
---- !u!114 &114566871634640836
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281923826546700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681e833fd88922243be8e7051ea1d183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEnemy: 1
 --- !u!114 &114576469599879082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2222,19 +2118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8bca54f2884d549931c283e6b74c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114619407125909028
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281923826546700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83e8039c6287644dad1b1928d8358f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWaypoint: 0
-  currentLap: 0
 --- !u!114 &114657047239478004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2368,45 +2251,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df622422a24f26f4089ef649fe35971d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114900601715208320
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1281923826546700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1127e691ba3f4d64fb04603726dc1a27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeathEffect: {fileID: 1670449994409838, guid: deccd10c125c68b45a2f08a86047b8f6,
-    type: 2}
-  DeathSound: {fileID: 1402738661686712, guid: 0b188733d10daa8478b62e8b46ff14a8, type: 2}
-  RespawnEffect: {fileID: 1263982203981668, guid: 06027a81838726e4aba36948b3ba8362,
-    type: 2}
-  RespawnSound: {fileID: 1927401529389224, guid: 15ae282be0da52d4f811823b277b2934,
-    type: 2}
-  CrashSound: {fileID: 1402738661686712, guid: fba52df8e41828d4bb12a04cb9925066, type: 2}
-  DrownSound: {fileID: 1402738661686712, guid: 0a3db8fcd65257e48b5eb7d8ce78c67b, type: 2}
-  CheckPo: {x: 0, y: 0, z: 0}
-  CheckPointR: {x: 0, y: 0, z: 0, w: 0}
-  power: 750
-  radius: 10
-  upforce: 50
-  boom: 0
-  IsEnemy: 1
-  IsDead: 0
-  Up: {x: 0, y: -200, z: 0}
-  speed: 0
-  resett: 0
-  target: {fileID: 4109012239859094}
 --- !u!114 &114926989713606306
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281923826546700}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ea65b38d485c374caa584a03f1de571, type: 3}
   m_Name: 
@@ -2465,19 +2316,6 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 25
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136892522166372316
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1629392627059030}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!146 &146002486874516652
 WheelCollider:

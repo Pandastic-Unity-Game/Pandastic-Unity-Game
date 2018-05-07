@@ -10,20 +10,16 @@ public class StartDriving : MonoBehaviour
     private CountDownTimer countDownTimer;
     private CarController Controler;
     private LapTimeManager time;
-
-    public bool isEnemy = false;
+    
     // Use this for initialization
     void Start()
     {
         countDownTimer = GameObject.FindGameObjectWithTag("Countdown").GetComponent<CountDownTimer>();
         Controler = gameObject.GetComponent<CarController>();
-        if (!isEnemy)
-        {
-            time = gameObject.GetComponent<LapTimeManager>();
-            time.enabled = false;
-        }
+        time = gameObject.GetComponent<LapTimeManager>();
         //Controler.m_Topspeed = 0;
         Controler.enabled = false;
+        time.enabled = false;
     }
 
     // Update is called once per frame
@@ -32,10 +28,7 @@ public class StartDriving : MonoBehaviour
         if (countDownTimer.GameIsPaused==false) 
         {
             Controler.enabled = true;
-            if (!isEnemy)
-            {
-                time.enabled = true;
-            }
+            time.enabled = true;
         }
     }
 }

@@ -22,7 +22,7 @@ public class Skidmarks : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Invoke("findPlayer",0.2f);
+        Invoke("findPlayer",1);
     }
 
     void findPlayer()
