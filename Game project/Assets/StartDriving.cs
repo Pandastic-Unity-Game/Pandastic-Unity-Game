@@ -17,6 +17,7 @@ public class StartDriving : MonoBehaviour
         //Controler.m_Topspeed = 0;
         Controler.enabled = false;
         time.enabled = false;
+        Debug.Log("veik");
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class StartDriving : MonoBehaviour
         {
             Controler.enabled = true;
             time.enabled = true;
+            Debug.Log(countDownTimer.GameIsPaused.ToString());
         }
     }
 }
