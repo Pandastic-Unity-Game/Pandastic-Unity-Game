@@ -22,7 +22,12 @@ public class Skidmarks : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Player = transform.root.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>();
+        Invoke("findPlayer",1);
+    }
+
+    void findPlayer()
+    {
+        Player = gameObject.transform.root.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>();
     }
 	
 	// Update is called once per frame

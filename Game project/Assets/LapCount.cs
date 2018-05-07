@@ -5,18 +5,26 @@ using UnityEngine.UI;
 
 public class LapCount : MonoBehaviour {
     public Text CurrentLap;
-    public CarPosition lap;
+    private CarPosition lap;
+
+    private GameObject Decision;
+    private RaceDontDestroy Data;
     // Use this for initialization
     void Start () {
+        lap = GameObject.FindGameObjectWithTag("Player").GetComponent<CarPosition>();
+
+        Decision = GameObject.FindGameObjectWithTag("Datas");
+        Data = Decision.GetComponent<RaceDontDestroy>();
+
         CurrentLap = GetComponent<Text>();
-        CurrentLap.text = "1";
+        CurrentLap.text = "1/" + Data.data.ToString();
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (lap.currentLap!=0)
         {
-            CurrentLap.text = (lap.currentLap+1).ToString();
+            CurrentLap.text = (lap.currentLap+1).ToString() + "/" + Data.data.ToString();
         }
         
 	}

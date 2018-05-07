@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Death : MonoBehaviour {
@@ -38,12 +39,23 @@ public class Death : MonoBehaviour {
 
     public Vector3 Up = new Vector3(0,-200,0);
 
+    public int TimesDead = 0;
+
+    private GameOverMenu GOMenu;
+    private Text DeathText;
+
+    private CountDownTimer Timer;
+
     private void Start()
     {
         car = gameObject.GetComponent<Rigidbody>();
         Meshes = gameObject.GetComponentsInChildren<MeshRenderer>();
         startP = transform.position;
         startR = transform.rotation;
+        GOMenu = GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<GameOverMenu>();
+
+        Timer = GameObject.FindGameObjectWithTag("Countdown").GetComponent<CountDownTimer>();
+
         CheckPo = startP;
         CheckPointR = startR;
         boom = false;
@@ -55,6 +67,7 @@ public class Death : MonoBehaviour {
         {
             Shieldd = gameObject.GetComponent<My_Power_UP>();
         }
+        TimesDead = 0;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -151,6 +164,7 @@ public class Death : MonoBehaviour {
     void Drown()
     {
         IsDead = true;
+        IncreaseDeathCount();
         Instantiate(DrownSound, transform.position, Quaternion.identity);
         respawnBool = true;
         foreach (MeshRenderer mesh in Meshes)
@@ -168,9 +182,15 @@ public class Death : MonoBehaviour {
         Instantiate(CrashSound, transform.position, Quaternion.identity);
     }
 
+    void IncreaseDeathCount()
+    {
+        TimesDead++;
+    }
+
     void Dead()
     {
         IsDead = true;
+        IncreaseDeathCount();
         Vector3 explosionPosition = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPosition, radius);
         foreach (Collider hit in colliders)
@@ -226,11 +246,17 @@ public class Death : MonoBehaviour {
         {
             if (Input.GetButtonDown("Respawn"))
             {
-                if (!respawnBool)
+                if (!respawnBool && !Timer.GameIsPaused)
                 {
                     Dead();
                 }
             }
+        }
+
+        if (GOMenu.GameIsOver)
+        {
+            DeathText = GameObject.FindGameObjectWithTag("DeathCount").GetComponent<Text>();
+            DeathText.text = TimesDead.ToString();
         }
     }
 }

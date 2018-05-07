@@ -5,8 +5,11 @@ using UnityEngine;
 public class RaceDontDestroy : MonoBehaviour {
 
     public int data;
-	// Use this for initialization
-    void Awake()
+    public int opponents;
+    public int selectedPlayer;
+
+
+    void Start()
     {
         DontDestroyOnLoad(this);
     }

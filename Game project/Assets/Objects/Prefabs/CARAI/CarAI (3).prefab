@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 114382183716272700}
   - component: {fileID: 114664155660249906}
   - component: {fileID: 114796530415752712}
+  - component: {fileID: 114875835042912482}
   - component: {fileID: 114480902627379966}
   - component: {fileID: 114254481856132166}
   - component: {fileID: 114448249890230242}
@@ -2181,6 +2182,8 @@ MonoBehaviour:
     type: 2}
   CrashSound: {fileID: 1402738661686712, guid: fba52df8e41828d4bb12a04cb9925066, type: 2}
   DrownSound: {fileID: 1402738661686712, guid: 0a3db8fcd65257e48b5eb7d8ce78c67b, type: 2}
+  CheckPo: {x: 0, y: 0, z: 0}
+  CheckPointR: {x: 0, y: 0, z: 0, w: 0}
   power: 750
   radius: 10
   upforce: 50
@@ -2188,6 +2191,7 @@ MonoBehaviour:
   IsEnemy: 1
   IsDead: 0
   Up: {x: 0, y: -200, z: 0}
+  TimesDead: 0
 --- !u!114 &114614285843719320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2245,6 +2249,17 @@ MonoBehaviour:
   progressStyle: 0
   pointToPointThreshold: 0.2
   target: {fileID: 4481733184583858}
+--- !u!114 &114875835042912482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1499009434332916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8bca54f2884d549931c283e6b74c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114934493493097030
 MonoBehaviour:
   m_ObjectHideFlags: 1

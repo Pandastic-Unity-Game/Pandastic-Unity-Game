@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 114450911264599848}
   - component: {fileID: 114075320499224892}
   - component: {fileID: 114519365829083444}
+  - component: {fileID: 114624958937625536}
   - component: {fileID: 114141167024346170}
   - component: {fileID: 114597904485397764}
   - component: {fileID: 114685073821449670}
@@ -2052,6 +2053,8 @@ MonoBehaviour:
     type: 2}
   CrashSound: {fileID: 1402738661686712, guid: fba52df8e41828d4bb12a04cb9925066, type: 2}
   DrownSound: {fileID: 1402738661686712, guid: 0a3db8fcd65257e48b5eb7d8ce78c67b, type: 2}
+  CheckPo: {x: 0, y: 0, z: 0}
+  CheckPointR: {x: 0, y: 0, z: 0, w: 0}
   power: 750
   radius: 10
   upforce: 50
@@ -2059,6 +2062,7 @@ MonoBehaviour:
   IsEnemy: 1
   IsDead: 0
   Up: {x: 0, y: -200, z: 0}
+  TimesDead: 0
 --- !u!114 &114309971776632054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2234,6 +2238,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkidTrailPrefab: {fileID: 400000, guid: 4b6aa99de5d21424eab6ae279f31475b, type: 2}
   skidParticles: {fileID: 0}
+--- !u!114 &114624958937625536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192234143986614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea8bca54f2884d549931c283e6b74c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114685073821449670
 MonoBehaviour:
   m_ObjectHideFlags: 1

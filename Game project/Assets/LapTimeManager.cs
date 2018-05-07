@@ -6,24 +6,34 @@ using System;
 
 public class LapTimeManager : MonoBehaviour {
 
-	public static int MinuteCount;
-	public static int SecondCount;
-	public static float MilliCount;
-	public static string MilliDisplay;
+    public static int MinuteCount;
+    public static int SecondCount;
+    public static float MilliCount;
+    public static string MilliDisplay;
 
-	public GameObject MinuteBox;
-	public GameObject SecondBox;
-	public GameObject MilliBox;
+	private Text MinuteBox;
+    private Text SecondBox;
+    private Text MilliBox;
 
-    public GameObject MinuteBox2;
-    public GameObject SecondBox2;
-    public GameObject MilliBox2;
+    private Text MinuteBox2;
+    private Text SecondBox2;
+    private Text MilliBox2;
+
+    private void Start()
+    {
+        MinuteBox = GameObject.FindGameObjectWithTag("MinDisplay").GetComponent<Text>();
+        MinuteBox2 = GameObject.FindGameObjectWithTag("MinDisplay").GetComponent<Text>();
+        SecondBox = GameObject.FindGameObjectWithTag("SecDisplay").GetComponent<Text>();
+        SecondBox2 = GameObject.FindGameObjectWithTag("SecDisplay").GetComponent<Text>();
+        MilliBox = GameObject.FindGameObjectWithTag("MiliDisplay").GetComponent<Text>();
+        MilliBox2 = GameObject.FindGameObjectWithTag("MiliDisplay").GetComponent<Text>();
+    }
 
     void Update () {
 		MilliCount += Time.deltaTime * 10;
 		MilliDisplay = MilliCount.ToString ("F0");
-		MilliBox.GetComponent<Text> ().text = "" + MilliDisplay;
-        MilliBox2.GetComponent<Text>().text = "" + MilliDisplay;
+		MilliBox.text = "" + MilliDisplay;
+        MilliBox2.text = "" + MilliDisplay;
 
 
         if (MilliCount >= 10) {
@@ -32,12 +42,12 @@ public class LapTimeManager : MonoBehaviour {
 		}
 
 		if (SecondCount <= 9) {
-			SecondBox.GetComponent<Text> ().text = "0" + SecondCount + ".";
-            SecondBox2.GetComponent<Text>().text = "0" + SecondCount + ".";
+			SecondBox.text = "0" + SecondCount + ".";
+            SecondBox2.text = "0" + SecondCount + ".";
 
         } else {
-			SecondBox.GetComponent<Text> ().text = "" + SecondCount + ".";
-            SecondBox2.GetComponent<Text>().text = "" + SecondCount + ".";
+			SecondBox.text = "" + SecondCount + ".";
+            SecondBox2.text = "" + SecondCount + ".";
         }
 
 		if (SecondCount >= 60) {
@@ -47,11 +57,11 @@ public class LapTimeManager : MonoBehaviour {
 		}
 
 		if (MinuteCount <= 9) {
-			MinuteBox.GetComponent<Text> ().text = "0" + MinuteCount + ":";
-            MinuteBox2.GetComponent<Text>().text = "0" + MinuteCount + ":";
+			MinuteBox.text = "0" + MinuteCount + ":";
+            MinuteBox2.text = "0" + MinuteCount + ":";
         } else {
-			MinuteBox.GetComponent<Text> ().text = "" + MinuteCount + ":";
-            MinuteBox2.GetComponent<Text>().text = "" + MinuteCount + ":";
+			MinuteBox.text = "" + MinuteCount + ":";
+            MinuteBox2.text = "" + MinuteCount + ":";
         }
 
 	}
