@@ -6,8 +6,10 @@ public class CarPosition : MonoBehaviour {
 
     public int currentWaypoint;
     public int currentLap;
-    public Transform lastWaypoint;
-    public int nbWaypoint;
+    private Transform lastWaypoint;
+    private int nbWaypoint;
+
+    private GameObject Checkpoints;
 
     private static int WAYPOINT_VALUE = 100;
     private static int LAP_VALUE = 10000;
@@ -15,15 +17,14 @@ public class CarPosition : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Checkpoints = GameObject.FindGameObjectWithTag("Checkpoint");
+        lastWaypoint = Checkpoints.transform.GetChild(0);
+        nbWaypoint = Checkpoints.transform.childCount;
+
         currentWaypoint = 0;
         currentLap = 0;
         cpt_waypoint = 0;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void OnTriggerEnter(Collider other)
     {

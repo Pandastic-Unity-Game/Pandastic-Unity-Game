@@ -9,8 +9,13 @@ public class CountDownTimer : MonoBehaviour {
     private bool startMoving = false;
     
     public float timer = 3;
-    public Text timerText;
+    private Text timerText;
     public bool GameIsPaused = true;
+
+    private Canvas LapTimeGUI;
+    private Canvas MinimapGUI;
+    private Canvas PowerUpGUI;
+
     // Use this for initialization
     void Start () {
         timerText = GetComponent<Text>();
@@ -18,13 +23,13 @@ public class CountDownTimer : MonoBehaviour {
         //StartCoroutine(WaitToGetReady());
         StartCoroutine(Countdown(4));
 
-        
-    }
+        LapTimeGUI = GameObject.FindGameObjectWithTag("LapTimeCanvas").GetComponent<Canvas>();
+        MinimapGUI = GameObject.FindGameObjectWithTag("PowerUpCanvas").GetComponent<Canvas>();
+        PowerUpGUI = GameObject.FindGameObjectWithTag("MinimapCanvas").GetComponent<Canvas>();
 
-    // Update is called once per frame
-    void Update()
-    {
-
+        LapTimeGUI.enabled = false;
+        MinimapGUI.enabled = false;
+        PowerUpGUI.enabled = false;
     }
 
     IEnumerator Countdown(int seconds)
@@ -39,6 +44,9 @@ public class CountDownTimer : MonoBehaviour {
             {
                 timerText.text = "GO!";
                 GameIsPaused = false;
+                LapTimeGUI.enabled = true;
+                MinimapGUI.enabled = true;
+                PowerUpGUI.enabled = true;
             }
             else
             {
@@ -51,7 +59,7 @@ public class CountDownTimer : MonoBehaviour {
         }
 
         // count down is finished...
-        gameObject.SetActive(false);
+        timerText.enabled = false;
     }
 
     /*IEnumerator WaitToGetReady()

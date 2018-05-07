@@ -58,6 +58,8 @@ namespace UnityStandardAssets.Utility
 
             // You can manually create a transform and assign it to this component *and* the AI,
             // then this component will update it, and the AI can read it.
+            circuit = GameObject.FindGameObjectWithTag("Waypoint").GetComponent<WaypointCircuit>();
+
             if (target == null)
             {
                 target = new GameObject(name + " Waypoint Target").transform;

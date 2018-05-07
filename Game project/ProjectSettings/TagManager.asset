@@ -26,6 +26,25 @@ TagManager:
   - ElectricField
   - CheckPoint
   - Datas
+  - InGameMenu
+  - GOPosition
+  - DeathCount
+  - GOPosition2
+  - Spawn
+  - MinDisplay
+  - SecDisplay
+  - MiliDisplay
+  - Checkpoint
+  - Countdown
+  - LapTimeCanvas
+  - PowerUpCanvas
+  - MinimapCanvas
+  - Waypoint
+  - LOL
+  - Sphere
+  - MinuteOver
+  - SecondOver
+  - MiliOver
   layers:
   - Default
   - TransparentFX

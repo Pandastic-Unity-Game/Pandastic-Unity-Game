@@ -8,10 +8,20 @@ public class PauseMenu : MonoBehaviour {
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+    private Canvas LapTimeGUI;
+    private Canvas MinimapGUI;
+    private Canvas PowerUpGUI;
+
+    private CountDownTimer Timer;
+    // Use this for initialization
+    void Start () {
+        LapTimeGUI = GameObject.FindGameObjectWithTag("LapTimeCanvas").GetComponent<Canvas>();
+        MinimapGUI = GameObject.FindGameObjectWithTag("PowerUpCanvas").GetComponent<Canvas>();
+        PowerUpGUI = GameObject.FindGameObjectWithTag("MinimapCanvas").GetComponent<Canvas>();
+
+        Timer = GameObject.FindGameObjectWithTag("Countdown").GetComponent<CountDownTimer>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,12 +42,27 @@ public class PauseMenu : MonoBehaviour {
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
+        LapTimeGUI.enabled = false;
+        MinimapGUI.enabled = false;
+        PowerUpGUI.enabled = false;
         GameIsPaused = true;
     }
 
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        if (Timer.GameIsPaused)
+        {
+            LapTimeGUI.enabled = false;
+            MinimapGUI.enabled = false;
+            PowerUpGUI.enabled = false;
+        }
+        else
+        {
+            LapTimeGUI.enabled = true;
+            MinimapGUI.enabled = true;
+            PowerUpGUI.enabled = true;
+        }
         Time.timeScale = 1f;
         GameIsPaused = false;
     }

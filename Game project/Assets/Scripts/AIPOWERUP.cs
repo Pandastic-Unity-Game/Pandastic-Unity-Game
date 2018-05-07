@@ -238,7 +238,7 @@ public class AIPOWERUP : MonoBehaviour {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider hit in colliders)
         {
-            if (hit.tag == "Player" || hit.tag == "Mine")
+            if (hit.tag == "LOL" || hit.tag == "Mine")
             {
                 IsDanger = true;
             }
