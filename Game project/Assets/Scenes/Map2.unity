@@ -800,7 +800,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: b315fa776449eec44a8591af7353afe8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.785042
+      value: -7.45
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b315fa776449eec44a8591af7353afe8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -23710,8 +23710,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1425101222}
-  m_LocalRotation: {x: -0.11995015, y: 0.6981254, z: 0.120403245, w: 0.6955113}
-  m_LocalPosition: {x: 85.60206, y: 66.66231, z: 505.14786}
+  m_LocalRotation: {x: -0.1512281, y: 0.6286461, z: 0.12637256, w: 0.75230587}
+  m_LocalPosition: {x: 95.89772, y: 66.368515, z: 505.401}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -28988,7 +28988,7 @@ MonoBehaviour:
   GameIsOver: 0
   Laps1: 0
   GameOverMenuUI: {fileID: 2121933429}
-  PositionPanel: {fileID: 1173858297}
+  PositionPanel: {fileID: 0}
 --- !u!1001 &1868471007
 Prefab:
   m_ObjectHideFlags: 0
