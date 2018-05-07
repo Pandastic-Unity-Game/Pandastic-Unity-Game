@@ -24,7 +24,12 @@ public class GameOverMenu : MonoBehaviour
 
     void Start()
     {
-        lap = GameObject.FindGameObjectWithTag("Player").GetComponent<CarPosition>();
+        Invoke("find",1);
+    }
+
+    void find()
+    {
+        lap = GameObject.FindGameObjectWithTag("LOL").GetComponent<CarPosition>();
 
         Total = GameObject.FindGameObjectWithTag("Datas");
         TotalLaps = Total.GetComponent<RaceDontDestroy>();
@@ -34,7 +39,6 @@ public class GameOverMenu : MonoBehaviour
         LapTimeGUI = GameObject.FindGameObjectWithTag("LapTimeCanvas").GetComponent<Canvas>();
         MinimapGUI = GameObject.FindGameObjectWithTag("PowerUpCanvas").GetComponent<Canvas>();
         PowerUpGUI = GameObject.FindGameObjectWithTag("MinimapCanvas").GetComponent<Canvas>();
-
     }
     // Update is called once per frame
     void Update()

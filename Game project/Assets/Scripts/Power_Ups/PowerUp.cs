@@ -25,7 +25,7 @@ public class PowerUp : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Player")
+        if (other.transform.tag == "LOL")
         {
             if (transform.tag == "Nitro")
             {
