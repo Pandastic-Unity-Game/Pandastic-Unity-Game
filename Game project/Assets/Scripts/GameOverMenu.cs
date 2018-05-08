@@ -22,8 +22,11 @@ public class GameOverMenu : MonoBehaviour
     private Canvas MinimapGUI;
     private Canvas PowerUpGUI;
 
+    public bool showResults = false;
+
     void Start()
     {
+        showResults = false;
         Invoke("find",1);
     }
 
@@ -55,7 +58,6 @@ public class GameOverMenu : MonoBehaviour
                 Pause();
             }
         }
-
     }
 
     void Pause()
@@ -70,6 +72,7 @@ public class GameOverMenu : MonoBehaviour
     void PointsMenu()
     {
         PositionPanel.SetActive(false);
+        showResults = true;
         GameOverMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
     }

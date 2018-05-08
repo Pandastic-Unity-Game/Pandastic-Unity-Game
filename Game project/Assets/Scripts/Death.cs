@@ -253,7 +253,7 @@ public class Death : MonoBehaviour {
             }
         }
 
-        if (GOMenu.GameIsOver)
+        if (GOMenu.showResults)
         {
             DeathText = GameObject.FindGameObjectWithTag("DeathCount").GetComponent<Text>();
             DeathText.text = TimesDead.ToString();

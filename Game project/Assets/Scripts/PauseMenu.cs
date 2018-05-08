@@ -14,6 +14,8 @@ public class PauseMenu : MonoBehaviour {
     private Canvas PowerUpGUI;
 
     private CountDownTimer Timer;
+
+    private GameObject Decision;
     // Use this for initialization
     void Start () {
         LapTimeGUI = GameObject.FindGameObjectWithTag("LapTimeCanvas").GetComponent<Canvas>();
@@ -21,6 +23,8 @@ public class PauseMenu : MonoBehaviour {
         PowerUpGUI = GameObject.FindGameObjectWithTag("MinimapCanvas").GetComponent<Canvas>();
 
         Timer = GameObject.FindGameObjectWithTag("Countdown").GetComponent<CountDownTimer>();
+
+        Decision = GameObject.FindGameObjectWithTag("Datas");
     }
 	
 	// Update is called once per frame
@@ -70,6 +74,7 @@ public class PauseMenu : MonoBehaviour {
     public void LoadMenu()
     {
         Time.timeScale = 1f;
+        Destroy(Decision);
         SceneManager.LoadScene("Menu");
     }
 }
