@@ -2098,20 +2098,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CautiousSpeedFactor: 0.5
   m_CautiousMaxAngle: 180
-  m_CautiousMaxDistance: 100
+  m_CautiousMaxDistance: 20
   m_CautiousAngularVelocityFactor: 30
   m_SteerSensitivity: 0.01
   m_AccelSensitivity: 1
   m_BrakeSensitivity: 1
   m_LateralWanderDistance: 3
   m_LateralWanderSpeed: 0.2
-  m_AccelWanderAmount: 0.1
+  m_AccelWanderAmount: 0.05
   m_AccelWanderSpeed: 0.1
-  m_BrakeCondition: 2
+  m_BrakeCondition: 1
   m_Driving: 1
   m_Target: {fileID: 4079229913265842}
   m_StopWhenTargetReached: 0
-  m_ReachTargetThreshold: 2
+  m_ReachTargetThreshold: 1.6
 --- !u!114 &114096319701024972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2238,7 +2238,7 @@ MonoBehaviour:
   - {fileID: 114616253664211514}
   - {fileID: 114330768905736190}
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 18
+  m_MaximumSteerAngle: 20
   m_SteerHelper: 0.5
   m_TractionControl: 1
   m_FullTorqueOverAllWheels: 550
@@ -2246,7 +2246,7 @@ MonoBehaviour:
   m_MaxHandbrakeTorque: 100000000
   m_Downforce: 100
   m_SpeedType: 1
-  m_Topspeed: 55
+  m_Topspeed: 62
   m_RevRangeBoundary: 1
   m_SlipLimit: 0.4
   m_BrakeTorque: 200000
