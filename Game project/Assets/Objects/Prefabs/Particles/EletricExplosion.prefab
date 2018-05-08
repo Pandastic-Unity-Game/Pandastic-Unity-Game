@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 135653698110442348}
   - component: {fileID: 114537687917875734}
   - component: {fileID: 114518453788614394}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4444148182704072}
   - component: {fileID: 114045513556655376}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: EletricExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4632129521165478}
   - component: {fileID: 198273058133746034}
   - component: {fileID: 199575892607396114}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4015533527140658}
   - component: {fileID: 198472490782384688}
   - component: {fileID: 199196766692297818}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Electric
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4248592107410724}
   - component: {fileID: 198352445410122886}
   - component: {fileID: 199740684525170874}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GroundWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1094065191020512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.241768, y: 105.78653, z: 467.62125}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4015533527140658}
