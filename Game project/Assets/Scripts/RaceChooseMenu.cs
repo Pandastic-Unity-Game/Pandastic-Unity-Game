@@ -9,33 +9,222 @@ public class RaceChooseMenu : MonoBehaviour {
     //public GameObject Data;
     public RaceDontDestroy Decision;
 
-    public Canvas LevelChoice;
-    public Canvas CarChoice;
+    public int TotalMaps = 2;
+    public int TotalCars = 6;
 
     public int selectedLaps = 2;
     public int selectedOP = 3;
     public int selectedPlayer = 0;
-
     public int selectedMapIndex = 0;
-    public Text LapText;
-    public Text OpText;
 
-    void start()
+    public Text Laps;
+    public Text Opponents;
+    public Text LevelName;
+    public Text CarName;
+
+    public Canvas MAIN;
+    public Canvas OPTIONS;
+    public Canvas LEVELS;
+    public Canvas CARS;
+    public Canvas CREDITS;
+    public Canvas CONFIRM;
+
+    public Slider TopSlider;
+    public Slider AccSlider;
+    public Slider HanSLider;
+
+    public GameObject NextLev;
+    public GameObject PrevLev;
+    public GameObject NextCar;
+    public GameObject PrevCar;
+
+    public Image MAPIMAGE;
+    public Image CARIMAGE;
+    public Image MAPIMAGEFINAL;
+
+    public Sprite[] MapImages;
+    public Sprite[] CarImages;
+
+    public string[] CarNames;
+    public string[] MapNames;
+
+    private bool MAINCANVAS = true;
+    private bool OPTIONCANVAS = false;
+    private bool LEVELCANVAS = false;
+    private bool CARCANVAS = false;
+    private bool CREDITCANVAS = false;
+    private bool CONFIRMCANVAS = false;
+
+    private void Start()
     {
-       // Decision = Data.GetComponent<RaceDontDestroy>();
+        selectedLaps = 2;
+        selectedOP = 3;
+        selectedPlayer = 0;
+
+        TopSlider.value = Random.Range(0, 100);
+        AccSlider.value = Random.Range(0, 100);
+        HanSLider.value = Random.Range(0, 100);
+
+        CARIMAGE.sprite = CarImages[0];
+        CarName.text = CarNames[0];
+
+        MAPIMAGE.sprite = MapImages[0];
+        LevelName.text = MapNames[0];
+
+        MAINCANVAS = true;
     }
 
     private void Update()
     {
-        LapText.text = selectedLaps.ToString();
-        OpText.text = selectedOP.ToString();
+        Laps.text = selectedLaps.ToString();
+        Opponents.text = selectedOP.ToString();
+
+        if (selectedMapIndex  == TotalMaps-1)
+        {
+            NextLev.SetActive(false);
+        }
+        else
+        {
+            NextLev.SetActive(true);
+        }
+
+        if (selectedPlayer == 0)
+        {
+            PrevCar.SetActive(false);
+        }
+        else
+        {
+            PrevCar.SetActive(true);
+        }
+
+        if (selectedPlayer == TotalCars-1)
+        {
+            NextCar.SetActive(false);
+        }
+        else
+        {
+            NextCar.SetActive(true);
+        }
+
+        if (selectedMapIndex == 0)
+        {
+            PrevLev.SetActive(false);
+        }
+        else
+        {
+            PrevLev.SetActive(true);
+        }
+
+        if (MAINCANVAS)
+        {
+            OPTIONCANVAS = false;
+            LEVELCANVAS = false;
+            CARCANVAS = false;
+            CREDITCANVAS = false;
+            CONFIRMCANVAS = false;
+
+            MAIN.enabled = true;
+        }
+        else
+        {
+            MAIN.enabled = false;
+        }
+
+        if (OPTIONCANVAS)
+        {
+            OPTIONS.enabled = true;
+            LEVELCANVAS = false;
+            if (Input.GetButton("Cancel"))
+            {
+                MAINCANVAS = true;
+            }
+        }
+        else
+        {
+            OPTIONS.enabled = false;
+        }
+
+        if (CONFIRMCANVAS)
+        {
+            CONFIRM.enabled = true;
+            if (Input.GetButtonDown("Cancel"))
+            {
+                MAINCANVAS = true;
+            }
+        }
+        else
+        {
+            CONFIRM.enabled = false;
+        }
+
+        if (LEVELCANVAS)
+        {
+            LEVELS.enabled = true;
+            CARCANVAS = false;
+            if (Input.GetButtonDown("Cancel"))
+            {
+                MAINCANVAS = true;
+            }
+        }
+        else
+        {
+            LEVELS.enabled = false;
+        }
+
+        if (CARCANVAS)
+        {
+            CARS.enabled = true;
+            MAPIMAGEFINAL.sprite = MapImages[selectedMapIndex];
+            if (Input.GetButtonDown("Cancel"))
+            {
+                LEVELCANVAS = true;
+            }
+        }
+        else
+        {
+            CARS.enabled = false;
+        }
     }
 
-    public void LapPlus ()
+    public void OptionButton()
+    {
+        MAINCANVAS = false;
+        OPTIONCANVAS = true;
+    }
+
+    public void LevelButton()
+    {
+        MAINCANVAS = false;
+        LEVELCANVAS = true;
+    }
+
+    public void CarButton()
+    {
+        LEVELCANVAS = false;
+        CARCANVAS = true;
+    }
+
+    public void ExitButton()
+    {
+        MAINCANVAS = false;
+        CONFIRMCANVAS = true;
+    }
+
+    public void YesButton()
+    {
+        Application.Quit();
+    }
+
+    public void NoButton()
+    {
+        MAINCANVAS = true;
+    }
+
+    public void LapPlus()
     {
         if (selectedLaps < 10)
         {
-            selectedLaps++; 
+            selectedLaps++;
         }
     }
 
@@ -49,90 +238,63 @@ public class RaceChooseMenu : MonoBehaviour {
 
     public void OpPlus()
     {
-        if (selectedOP < 10)
+        if (selectedOP < 9)
         {
-            selectedOP++; 
+            selectedOP++;
         }
     }
 
     public void OpMinus()
     {
-        if (selectedOP > 0)
+        if (selectedOP >= 1)
         {
             selectedOP--;
         }
     }
 
-    public void selectedMap1()
+    public void NextMap()
     {
-        selectedMapIndex = 0;
+        selectedMapIndex++;
+        MAPIMAGE.sprite = MapImages[selectedMapIndex];
+        LevelName.text = MapNames[selectedMapIndex];
     }
 
-    public void selectedMap2()
+    public void PrevMap()
     {
-        selectedMapIndex = 1;
-        Confirm();
+        selectedMapIndex--;
+        MAPIMAGE.sprite = MapImages[selectedMapIndex];
+        LevelName.text = MapNames[selectedMapIndex];
     }
 
-    public void playerSelect0()
+    public void NextCars()
     {
-        selectedPlayer = 0;
-        Confirm();
+        selectedPlayer++;
+        CARIMAGE.sprite = CarImages[selectedPlayer];
+        CarName.text = CarNames[selectedPlayer];
+        TopSlider.value = Random.Range(0, 100);
+        AccSlider.value = Random.Range(0, 100);
+        HanSLider.value = Random.Range(0, 100);
     }
 
-    public void playerSelect1()
+    public void PrevCars()
     {
-        selectedPlayer = 1;
-        Confirm();
+        selectedPlayer--;
+        CARIMAGE.sprite = CarImages[selectedPlayer];
+        CarName.text = CarNames[selectedPlayer];
+        TopSlider.value = Random.Range(0, 100);
+        AccSlider.value = Random.Range(0, 100);
+        HanSLider.value = Random.Range(0, 100);
     }
 
-    public void playerSelect2()
+    public void RaceButton()
     {
-        selectedPlayer = 2;
-        Confirm();
-    }
-
-    public void playerSelect3()
-    {
-        selectedPlayer = 3;
-        Confirm();
-    }
-
-    public void playerSelect4()
-    {
-        selectedPlayer = 4;
-        Confirm();
-    }
-
-    public void playerSelect5()
-    {
-        selectedPlayer = 5;
-        Confirm();
-    }
-
-    public void Confirm()
-    {
-        Decision.opponents = selectedOP;
-        Decision.data = selectedLaps;
         Decision.selectedPlayer = selectedPlayer;
-
+        Decision.data = selectedLaps;
+        Decision.opponents = selectedOP;
         if (selectedMapIndex == 0)
         {
             SceneManager.LoadScene("Map2");
         }
-        else if (selectedMapIndex == 1)
-        {
-        }
-    }
-
-    public void enableLevel()
-    {
-        LevelChoice.enabled = true;
-    }
-
-    public void enableCar()
-    {
-        CarChoice.enabled = true;
-        LevelChoice.enabled = false;
     }
 }
+
