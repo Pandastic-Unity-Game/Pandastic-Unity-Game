@@ -50,7 +50,11 @@ public class DeathAI : MonoBehaviour {
         
         if (speed < 2)
         {
-            Dead();
+            if(!resett)
+            {
+                Dead();
+            }
+            
         }
         
 

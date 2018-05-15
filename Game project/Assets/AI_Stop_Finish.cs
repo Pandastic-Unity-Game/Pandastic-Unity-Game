@@ -26,14 +26,15 @@ public class AI_Stop_Finish : MonoBehaviour {
         maxlaps = info.data;
         Controler.m_Topspeed = 62f;
         death.enabled = true;
+        death.resett = false;
     }
 	void StopAtFinish(int currentlap, int maxlaps, CarController car, DeathAI death)
     {
         if(currentlap == maxlaps)
         {
             death.enabled = false;
-            car.m_Topspeed = 0;
-            
+            death.resett = true;
+            Controler.m_Topspeed = 4;
         }
     }
 	// Update is called once per frame
