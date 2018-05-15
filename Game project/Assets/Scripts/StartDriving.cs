@@ -32,6 +32,7 @@ public class StartDriving : MonoBehaviour
         if (countDownTimer.GameIsPaused==false) 
         {
             Controler.enabled = true;
+            
             if (!isEnemy)
             {
                 time.enabled = true;

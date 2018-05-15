@@ -47,7 +47,7 @@ public class AI_Stuck : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         speed = rb.velocity.magnitude * 3.6f;
-        if (speed < 5)
+        if (speed < 3)
         {
             Invoke("death", 10.0f);
             resett = false;
