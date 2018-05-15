@@ -56,6 +56,9 @@ namespace UnityStandardAssets.Vehicles.Car
         public float AccelInput { get; private set; }
         public bool IsDrifting = false;
 
+        private ParticleSystem[] driftParticles;
+        public GameObject driftParticleObject;
+
         // Use this for initialization
         private void Start()
         {
@@ -70,10 +73,29 @@ namespace UnityStandardAssets.Vehicles.Car
 
             m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl*m_FullTorqueOverAllWheels);
+
+            driftParticles = driftParticleObject.GetComponentsInChildren<ParticleSystem>();
         }
         private void Update()
         {
             Dinamic_Steering();
+
+            if (IsDrifting)
+            {
+                foreach (ParticleSystem particles in driftParticles)
+                {
+                    var driftEmission = particles.emission;
+                    driftEmission.enabled = true;
+                }
+            }
+            else
+            {
+                foreach (ParticleSystem particles in driftParticles)
+                {
+                    var driftEmission = particles.emission;
+                    driftEmission.enabled = false;
+                }
+            }
         }
 
         private void GearChanging()
