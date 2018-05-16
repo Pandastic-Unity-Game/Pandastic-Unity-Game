@@ -8855,7 +8855,7 @@ GameObject:
   - component: {fileID: 441114663}
   - component: {fileID: 441114662}
   m_Layer: 0
-  m_Name: GamePlayeMusic
+  m_Name: GamePlayMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8957,6 +8957,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e173e34bb916b90409f47689e6d3dc99, type: 3}
   - {fileID: 8300000, guid: f6b90dd5cb49d814a91fc2c52619082c, type: 3}
   - {fileID: 8300000, guid: d0d1c0979a7b77d4e947f99975b1ee49, type: 3}
+  - {fileID: 8300000, guid: 35642923159c3e244a12784c94d8148a, type: 3}
+  - {fileID: 8300000, guid: b8e63d4e2a978a944a9f6a0f15f1748d, type: 3}
+  songInt: 0
+  musicLen: 0
 --- !u!4 &441114664
 Transform:
   m_ObjectHideFlags: 0
@@ -24709,8 +24713,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1425101222}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 83.57065, y: 75.10988, z: 590.76855}
+  m_LocalRotation: {x: 0.2385918, y: 0.19041058, z: 0.04776581, w: -0.95107114}
+  m_LocalPosition: {x: 87.631935, y: 69.3844, z: 587.27527}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

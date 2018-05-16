@@ -10,11 +10,13 @@ public class GamePlayMusic : MonoBehaviour
 
     private bool found = false;
 
-    private bool Pause;
+    public int songInt;
+    public int musicLen;
 
     private void Start()
     {
         Source = GetComponent<AudioSource>();
+        musicLen = Music.Length;
         found = false;
         Invoke("GetObjects", 1);
     }
@@ -29,17 +31,40 @@ public class GamePlayMusic : MonoBehaviour
     {
         if (found)
         {
-            if (!CountDown.GameIsPaused)
+            if (!Source.isPlaying)
             {
-                if (!Source.isPlaying)
-                {
-                    if (!Pause)
-                    {
-                        Source.clip = Music[Random.Range(0, Music.Length)];
-                        Source.Play();
-                    }
-                }
+                songInt = Random.Range(0, Music.Length);
+                Source.clip = Music[songInt];
+                Source.Play();
             }
+
+            if (Input.GetButtonDown("NextSong"))
+            {
+                if (songInt + 1 >= Music.Length)
+                {
+                    songInt = 0;
+                }
+                else
+                {
+                    songInt++;
+                }
+                Source.clip = Music[songInt];
+                Source.Play();
+            }
+            if (Input.GetButtonDown("PrevSong"))
+            {
+                if (songInt - 1 < 0)
+                {
+                    songInt = Music.Length - 1;
+                }
+                else
+                {
+                    songInt--;
+                }
+                Source.clip = Music[songInt];
+                Source.Play();
+            }
+
         }
     }
 }
