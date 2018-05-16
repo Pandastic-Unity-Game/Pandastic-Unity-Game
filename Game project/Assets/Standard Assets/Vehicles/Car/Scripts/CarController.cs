@@ -1,5 +1,9 @@
 using System;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityStandardAssets.Vehicles.Car;
+using UnityEngine.UI;
 
 namespace UnityStandardAssets.Vehicles.Car
 {
@@ -24,7 +28,7 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private WheelEffects[] m_WheelEffects = new WheelEffects[4];
         [SerializeField] private Vector3 m_CentreOfMassOffset;
         [SerializeField] private float m_MaximumSteerAngle;
-        [Range(0, 1)] [SerializeField] private float m_SteerHelper; // 0 is raw physics , 1 the car will grip in the direction it is facing
+        [Range(0, 1)] [SerializeField] public float m_SteerHelper; // 0 is raw physics , 1 the car will grip in the direction it is facing
         [Range(0, 1)] [SerializeField] private float m_TractionControl; // 0 is no traction control, 1 is full interference
         [SerializeField] public float m_FullTorqueOverAllWheels;
         [SerializeField] private float m_ReverseTorque;
@@ -59,9 +63,12 @@ namespace UnityStandardAssets.Vehicles.Car
         private ParticleSystem[] driftParticles;
         public GameObject driftParticleObject;
 
+        private float startSteer;
+
         // Use this for initialization
         private void Start()
         {
+            startSteer = m_SteerHelper;
             m_WheelMeshLocalRotations = new Quaternion[4];
             for (int i = 0; i < 4; i++)
             {
@@ -186,6 +193,11 @@ namespace UnityStandardAssets.Vehicles.Car
                 var hbTorque = handbrake*m_MaxHandbrakeTorque;
                 m_WheelColliders[2].brakeTorque = hbTorque;
                 m_WheelColliders[3].brakeTorque = hbTorque;
+                m_SteerHelper = 0.00f;
+            }
+            else
+            {
+                m_SteerHelper = startSteer;
             }
 
 

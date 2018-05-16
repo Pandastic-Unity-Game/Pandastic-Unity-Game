@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityStandardAssets.Vehicles.Car;
 
 public class Death : MonoBehaviour {
 
@@ -46,10 +47,13 @@ public class Death : MonoBehaviour {
 
     private CountDownTimer Timer;
 
+    private CarController Controller;
+
     private void Start()
     {
         car = gameObject.GetComponent<Rigidbody>();
         Meshes = gameObject.GetComponentsInChildren<MeshRenderer>();
+        Controller = gameObject.GetComponent<CarController>();
         startP = transform.position;
         startR = transform.rotation;
         GOMenu = GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<GameOverMenu>();
@@ -121,8 +125,6 @@ public class Death : MonoBehaviour {
         {
             Crash();
         }
-       
-
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -132,33 +134,6 @@ public class Death : MonoBehaviour {
             CheckPo = collision.transform.position;
             CheckPointR = collision.transform.rotation;
         }
-        //    if (collision.transform.tag == "Electric" || collision.transform.tag == "Shield" || collision.transform.tag == "Nitro" || collision.transform.tag == "MineBox"
-        //        || collision.transform.tag == "Rocket" || collision.transform.tag == "Missile" || collision.transform.tag == "ElectricField") 
-        //    {
-
-        //    }
-        //    else if (collision.transform.tag == "Mine")
-        //    {
-        //        if (IsEnemy)
-        //        {
-        //            if (!ShieldAI.ShieldOn)
-        //            {
-        //                Dead();
-        //            }
-        //        }
-        //        else
-        //        {
-        //            if (!Shieldd.ShieldOn)
-        //            {
-        //                Dead();
-        //            }
-        //        }
-        //    }      
-        //    else
-        //    {
-        //        Crash();
-        //        //Dead();
-        //    }
 
     }
     void Drown()
@@ -190,6 +165,7 @@ public class Death : MonoBehaviour {
     void Dead()
     {
         IsDead = true;
+        Controller.enabled = false;
         IncreaseDeathCount();
         Vector3 explosionPosition = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPosition, radius);
@@ -232,6 +208,7 @@ public class Death : MonoBehaviour {
         car.constraints = RigidbodyConstraints.None;
         Instantiate(RespawnEffect,transform.position,Quaternion.identity);
         Instantiate(RespawnSound,transform.position,Quaternion.identity);
+        Controller.enabled = true;
         Invoke("ResetRespawn",2);
     }
 

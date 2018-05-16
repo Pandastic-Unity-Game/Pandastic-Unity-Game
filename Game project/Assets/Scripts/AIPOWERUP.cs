@@ -261,8 +261,8 @@ public class AIPOWERUP : MonoBehaviour {
 
     IEnumerator usingNitro()
     {
-        Controler.m_Topspeed = 70;
-        Controler.m_FullTorqueOverAllWheels = 700;
+        Controler.m_Topspeed += 15;
+        Controler.m_FullTorqueOverAllWheels += 200;
 
         foreach (ParticleSystem particles in nitroParticles)
         {
@@ -274,8 +274,8 @@ public class AIPOWERUP : MonoBehaviour {
 
         yield return new WaitForSeconds(NitroDuration);
 
-        Controler.m_Topspeed = 55;
-        Controler.m_FullTorqueOverAllWheels = 550;
+        Controler.m_Topspeed -= 15;
+        Controler.m_FullTorqueOverAllWheels -= 200;
 
         foreach (ParticleSystem particles in nitroParticles)
         {

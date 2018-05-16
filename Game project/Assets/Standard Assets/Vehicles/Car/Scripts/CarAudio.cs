@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.Audio;
 
 namespace UnityStandardAssets.Vehicles.Car
 {
@@ -41,6 +42,8 @@ namespace UnityStandardAssets.Vehicles.Car
         public float maxRolloffDistance = 500;                                      // The maximum distance where rollof starts to take place
         public float dopplerLevel = 1;                                              // The mount of doppler effect used in the audio
         public bool useDoppler = true;                                              // Toggle for using doppler
+        public AudioMixerGroup Mixer;
+        public AudioRolloffMode Mode;
 
         private AudioSource m_LowAccel; // Source for the low acceleration sounds
         private AudioSource m_LowDecel; // Source for the low deceleration sounds
@@ -168,7 +171,9 @@ namespace UnityStandardAssets.Vehicles.Car
             // start the clip from a random point
             source.time = Random.Range(0f, clip.length);
             source.Play();
-            source.minDistance = 5;
+            source.outputAudioMixerGroup = Mixer;
+            source.rolloffMode = Mode;
+            source.minDistance = 0;
             source.maxDistance = maxRolloffDistance;
             source.dopplerLevel = 0;
             return source;

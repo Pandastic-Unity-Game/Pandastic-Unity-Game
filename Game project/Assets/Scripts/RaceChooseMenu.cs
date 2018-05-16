@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Vehicles.Car;
 
 public class RaceChooseMenu : MonoBehaviour {
 
@@ -32,6 +33,7 @@ public class RaceChooseMenu : MonoBehaviour {
     public Slider TopSlider;
     public Slider AccSlider;
     public Slider HanSLider;
+    public Slider WeiSlider;
 
     public GameObject NextLev;
     public GameObject PrevLev;
@@ -55,15 +57,19 @@ public class RaceChooseMenu : MonoBehaviour {
     private bool CREDITCANVAS = false;
     private bool CONFIRMCANVAS = false;
 
+    public CarController[] Controllers;
+    public Rigidbody[] CarBodies;
+
     private void Start()
     {
         selectedLaps = 2;
         selectedOP = 3;
         selectedPlayer = 0;
 
-        TopSlider.value = Random.Range(0, 100);
-        AccSlider.value = Random.Range(0, 100);
-        HanSLider.value = Random.Range(0, 100);
+        TopSlider.value = Controllers[0].m_Topspeed;
+        AccSlider.value = Controllers[0].m_FullTorqueOverAllWheels;
+        HanSLider.value = Controllers[0].m_SteerHelper;
+        WeiSlider.value = CarBodies[0].mass;
 
         CARIMAGE.sprite = CarImages[0];
         CarName.text = CarNames[0];
@@ -271,9 +277,10 @@ public class RaceChooseMenu : MonoBehaviour {
         selectedPlayer++;
         CARIMAGE.sprite = CarImages[selectedPlayer];
         CarName.text = CarNames[selectedPlayer];
-        TopSlider.value = Random.Range(0, 100);
-        AccSlider.value = Random.Range(0, 100);
-        HanSLider.value = Random.Range(0, 100);
+        TopSlider.value = Controllers[selectedPlayer].m_Topspeed;
+        AccSlider.value = Controllers[selectedPlayer].m_FullTorqueOverAllWheels;
+        HanSLider.value = Controllers[selectedPlayer].m_SteerHelper;
+        WeiSlider.value = CarBodies[selectedPlayer].mass;
     }
 
     public void PrevCars()
@@ -281,9 +288,10 @@ public class RaceChooseMenu : MonoBehaviour {
         selectedPlayer--;
         CARIMAGE.sprite = CarImages[selectedPlayer];
         CarName.text = CarNames[selectedPlayer];
-        TopSlider.value = Random.Range(0, 100);
-        AccSlider.value = Random.Range(0, 100);
-        HanSLider.value = Random.Range(0, 100);
+        TopSlider.value = Controllers[selectedPlayer].m_Topspeed;
+        AccSlider.value = Controllers[selectedPlayer].m_FullTorqueOverAllWheels;
+        HanSLider.value = Controllers[selectedPlayer].m_SteerHelper;
+        WeiSlider.value = CarBodies[selectedPlayer].mass;
     }
 
     public void RaceButton()
