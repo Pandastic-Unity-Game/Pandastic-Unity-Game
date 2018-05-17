@@ -10,8 +10,8 @@ public class GamePlayMusic : MonoBehaviour
 
     private bool found = false;
 
-    public int songInt;
-    public int musicLen;
+    private int songInt;
+    private int musicLen;
 
     private void Start()
     {

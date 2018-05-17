@@ -2597,12 +2597,12 @@ MonoBehaviour:
   m_MaximumSteerAngle: 20
   m_SteerHelper: 0.65
   m_TractionControl: 1
-  m_FullTorqueOverAllWheels: 800
+  m_FullTorqueOverAllWheels: 750
   m_ReverseTorque: 150
   m_MaxHandbrakeTorque: 0
   m_Downforce: 100
   m_SpeedType: 1
-  m_Topspeed: 65
+  m_Topspeed: 63
   m_RevRangeBoundary: 1
   m_SlipLimit: 0.3
   m_BrakeTorque: 200000

@@ -203,7 +203,7 @@ public class Death : MonoBehaviour {
         {
             mesh.enabled = true;
         }
-        transform.position = CheckPo;
+        transform.position = CheckPo + new Vector3(Random.Range(-3,3),0, Random.Range(-3, 3));
         transform.rotation = CheckPointR;
         car.constraints = RigidbodyConstraints.None;
         Instantiate(RespawnEffect,transform.position,Quaternion.identity);
