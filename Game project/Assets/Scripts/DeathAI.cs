@@ -260,5 +260,7 @@ public class DeathAI : MonoBehaviour {
                 }
             }
         }
+        //CheckPo = target.transform.position;
+        //CheckPointR = target.transform.rotation;
     }
 }

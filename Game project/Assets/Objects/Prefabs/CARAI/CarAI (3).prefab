@@ -314,7 +314,6 @@ GameObject:
   - component: {fileID: 65788773641606438}
   - component: {fileID: 65853621253369016}
   - component: {fileID: 114305504852049012}
-  - component: {fileID: 114421748233328100}
   m_Layer: 0
   m_Name: CarAI (3)
   m_TagString: AI
@@ -1375,7 +1374,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1499009434332916}
   serializedVersion: 2
-  m_Mass: 550
+  m_Mass: 350
   m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -2399,7 +2398,7 @@ MonoBehaviour:
   m_MaximumSteerAngle: 20
   m_SteerHelper: 0.55
   m_TractionControl: 1
-  m_FullTorqueOverAllWheels: 850
+  m_FullTorqueOverAllWheels: 750
   m_ReverseTorque: 150
   m_MaxHandbrakeTorque: 0
   m_Downforce: 100
@@ -2410,35 +2409,6 @@ MonoBehaviour:
   m_BrakeTorque: 200000
   IsDrifting: 0
   driftParticleObject: {fileID: 1150240429455754}
---- !u!114 &114421748233328100
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1499009434332916}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb0544fc4e0e0541a2a1594495460fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeathEffect: {fileID: 1670449994409838, guid: deccd10c125c68b45a2f08a86047b8f6,
-    type: 2}
-  DeathSound: {fileID: 1402738661686712, guid: 0b188733d10daa8478b62e8b46ff14a8, type: 2}
-  RespawnEffect: {fileID: 1263982203981668, guid: 06027a81838726e4aba36948b3ba8362,
-    type: 2}
-  RespawnSound: {fileID: 1927401529389224, guid: 15ae282be0da52d4f811823b277b2934,
-    type: 2}
-  CrashSound: {fileID: 1402738661686712, guid: fba52df8e41828d4bb12a04cb9925066, type: 2}
-  DrownSound: {fileID: 1402738661686712, guid: 0a3db8fcd65257e48b5eb7d8ce78c67b, type: 2}
-  CheckPo: {x: 0, y: 0, z: 0}
-  CheckPointR: {x: 0, y: 0, z: 0, w: 0}
-  power: 500
-  radius: 10
-  upforce: 100
-  boom: 0
-  IsEnemy: 0
-  IsDead: 1
-  Up: {x: 0, y: -200, z: 0}
 --- !u!114 &114448249890230242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2560,7 +2530,7 @@ MonoBehaviour:
   m_Driving: 1
   m_Target: {fileID: 4481733184583858}
   m_StopWhenTargetReached: 0
-  m_ReachTargetThreshold: 1.6
+  m_ReachTargetThreshold: 1.4
 --- !u!114 &114796530415752712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2573,7 +2543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circuit: {fileID: 0}
-  lookAheadForTargetOffset: 15
+  lookAheadForTargetOffset: 8
   lookAheadForTargetFactor: 0.1
   lookAheadForSpeedOffset: 20
   lookAheadForSpeedFactor: 0.5
