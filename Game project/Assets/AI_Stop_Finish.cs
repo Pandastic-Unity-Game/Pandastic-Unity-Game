@@ -17,14 +17,14 @@ public class AI_Stop_Finish : MonoBehaviour {
         Controler = gameObject.GetComponent<CarController>();
         death = gameObject.GetComponent<DeathAI>();
         //maxlaps = info.data;
-        
+        maxlaps = 2;
         Invoke("find", 1);
     }
     void find()
     {
         RaceDontDestroy info = GameObject.FindGameObjectWithTag("Datas").GetComponent<RaceDontDestroy>();
         maxlaps = info.data;
-        Controler.m_Topspeed = 62f;
+        Controler.m_Topspeed = 70f;
         death.enabled = true;
         death.resett = false;
     }
@@ -34,8 +34,13 @@ public class AI_Stop_Finish : MonoBehaviour {
         {
             death.enabled = false;
             death.resett = true;
-            Controler.m_Topspeed = 4;
+            //Controler.m_Topspeed = 4;
+            Invoke("stop", 2);
         }
+    }
+    void stop()
+    {
+        Controler.m_Topspeed = 4;
     }
 	// Update is called once per frame
 	void Update () {
