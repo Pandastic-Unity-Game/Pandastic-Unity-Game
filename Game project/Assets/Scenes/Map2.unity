@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.75
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 848267412}
-  m_IndirectSpecularColor: {r: 0.59484726, g: 0.7126216, b: 0.7792709, a: 0.75}
+  m_IndirectSpecularColor: {r: 0.5948939, g: 0.71265364, b: 0.7792671, a: 0.75}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -26590,7 +26590,7 @@ GameObject:
   - component: {fileID: 1557285346}
   m_Layer: 0
   m_Name: GM
-  m_TagString: Untagged
+  m_TagString: GM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30662,6 +30662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameIsOver: 0
+  rest: 0
   Laps1: 0
   GameOverMenuUI: {fileID: 2121933429}
   PositionPanel: {fileID: 1173858297}

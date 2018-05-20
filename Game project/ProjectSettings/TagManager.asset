@@ -45,6 +45,7 @@ TagManager:
   - MinuteOver
   - SecondOver
   - MiliOver
+  - GM
   layers:
   - Default
   - TransparentFX

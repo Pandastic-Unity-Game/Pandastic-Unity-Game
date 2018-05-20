@@ -10,6 +10,7 @@ public class LapTimeManager : MonoBehaviour {
     public static int SecondCount;
     public static float MilliCount;
     public static string MilliDisplay;
+    private GameOver over;
 
     private Text MinuteBox;
     private Text SecondBox;
@@ -27,6 +28,8 @@ public class LapTimeManager : MonoBehaviour {
         SecondBox2 = GameObject.FindGameObjectWithTag("SecDisplay").GetComponent<Text>();
         MilliBox = GameObject.FindGameObjectWithTag("MiliDisplay").GetComponent<Text>();
         MilliBox2 = GameObject.FindGameObjectWithTag("MiliDisplay").GetComponent<Text>();
+        over = GameObject.FindGameObjectWithTag("GM").GetComponent<GameOver>();
+
     }
 
     void Update () {
@@ -62,6 +65,12 @@ public class LapTimeManager : MonoBehaviour {
         } else {
 			MinuteBox.text = "" + MinuteCount + ":";
             MinuteBox2.text = "" + MinuteCount + ":";
+        }
+        if (over.rest)
+        {
+            MinuteCount = 0;
+            SecondCount = 0;
+            MilliCount = 0;
         }
 
 	}

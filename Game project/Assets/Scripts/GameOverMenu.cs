@@ -8,6 +8,7 @@ public class GameOverMenu : MonoBehaviour
 {
 
     public bool GameIsOver = false;
+    public bool rest = false;
     private CarPosition lap;
     public int Laps1;
 
@@ -38,6 +39,7 @@ public class GameOverMenu : MonoBehaviour
         TotalLaps = Total.GetComponent<RaceDontDestroy>();
         Laps1 = TotalLaps.data;
         GameIsOver = false;
+        rest = false;
 
         LapTimeGUI = GameObject.FindGameObjectWithTag("LapTimeCanvas").GetComponent<Canvas>();
         MinimapGUI = GameObject.FindGameObjectWithTag("PowerUpCanvas").GetComponent<Canvas>();
@@ -55,6 +57,7 @@ public class GameOverMenu : MonoBehaviour
             else
             {
                 GameIsOver = true;
+                rest = true;
                 Pause();
             }
         }
