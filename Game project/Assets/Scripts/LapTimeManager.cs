@@ -12,9 +12,9 @@ public class LapTimeManager : MonoBehaviour {
     public static string MilliDisplay;
     private GameOver over;
 
-    private Text MinuteBox;
-    private Text SecondBox;
-    private Text MilliBox;
+    public Text MinuteBox;
+    public Text SecondBox;
+    public Text MilliBox;
 
     private Text MinuteBox2;
     private Text SecondBox2;
