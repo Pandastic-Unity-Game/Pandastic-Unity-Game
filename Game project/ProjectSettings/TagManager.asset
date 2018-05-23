@@ -46,6 +46,18 @@ TagManager:
   - SecondOver
   - MiliOver
   - GM
+  - 1
+  - select
+  - race
+  - lap+
+  - lap-
+  - op+
+  - op-
+  - quit
+  - yes
+  - back
+  - options
+  - resolu
   layers:
   - Default
   - TransparentFX

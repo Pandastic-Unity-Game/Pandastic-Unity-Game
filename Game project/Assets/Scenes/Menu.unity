@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657886, g: 0.4964127, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 56425484}
   m_Layer: 5
   m_Name: lap-
-  m_TagString: Untagged
+  m_TagString: lap-
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -755,6 +755,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2012286951}
+    - target: {fileID: 1149488781665614, guid: 8b1bfc8db6b0a2245be95cbb4b84f3a7, type: 2}
+      propertyPath: m_TagString
+      value: yes
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b1bfc8db6b0a2245be95cbb4b84f3a7, type: 2}
   m_IsPrefabParent: 0
@@ -992,7 +996,7 @@ GameObject:
   - component: {fileID: 251648442}
   m_Layer: 5
   m_Name: op+
-  m_TagString: Untagged
+  m_TagString: op+
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1694,7 +1698,7 @@ GameObject:
   - component: {fileID: 581277991}
   m_Layer: 5
   m_Name: BACK (1)
-  m_TagString: Untagged
+  m_TagString: back
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3060,7 +3064,7 @@ GameObject:
   - component: {fileID: 1035042259}
   m_Layer: 5
   m_Name: RACE
-  m_TagString: Untagged
+  m_TagString: race
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4061,6 +4065,22 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2012286951}
+    - target: {fileID: 1890803832816928, guid: ea35dabbc99553e4f9216047add350f5, type: 2}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610865275099410, guid: ea35dabbc99553e4f9216047add350f5, type: 2}
+      propertyPath: m_TagString
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949002002920844, guid: ea35dabbc99553e4f9216047add350f5, type: 2}
+      propertyPath: m_TagString
+      value: quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389451043667012, guid: ea35dabbc99553e4f9216047add350f5, type: 2}
+      propertyPath: m_TagString
+      value: options
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea35dabbc99553e4f9216047add350f5, type: 2}
   m_IsPrefabParent: 0
@@ -4077,7 +4097,7 @@ GameObject:
   - component: {fileID: 1468313100}
   m_Layer: 5
   m_Name: lap+
-  m_TagString: Untagged
+  m_TagString: lap+
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5467,7 +5487,7 @@ GameObject:
   - component: {fileID: 1882315613}
   m_Layer: 5
   m_Name: op-
-  m_TagString: Untagged
+  m_TagString: op-
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5885,7 +5905,7 @@ GameObject:
   - component: {fileID: 1968531328}
   m_Layer: 5
   m_Name: SELECTMAP
-  m_TagString: Untagged
+  m_TagString: select
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6538,6 +6558,10 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368078406775474, guid: 110f013f60b44ba44ba1d8cd7181cc84, type: 2}
+      propertyPath: m_TagString
+      value: resolu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 110f013f60b44ba44ba1d8cd7181cc84, type: 2}
