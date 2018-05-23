@@ -60,6 +60,24 @@ public class RaceChooseMenu : MonoBehaviour {
     private bool CREDITCANVAS = false;
     private bool CONFIRMCANVAS = false;
 
+    public GameObject MainPanel;
+    public GameObject OptionPanel;
+    public GameObject LevelPanel;
+    public GameObject CarPanel;
+    public GameObject ExitPanel;
+    public GameObject LevelImagePanel;
+    public GameObject CarLevelPanel;
+    public GameObject CarImagePanel;
+
+    private Animator MainAnimator;
+    private Animator OptionAnimator;
+    private Animator LevelAnimator;
+    private Animator CarAnimator;
+    private Animator ExitAnimator;
+    private Animator LevelImage;
+    private Animator CarLevelAnimator;
+    private Animator CarImageAnimator;
+
     public CarController[] Controllers;
     public Rigidbody[] CarBodies;
 
@@ -69,6 +87,15 @@ public class RaceChooseMenu : MonoBehaviour {
         selectedOP = 3;
         selectedPlayer = 0;
         selectedPlayer1 = 1;
+
+        MainAnimator = MainPanel.GetComponent<Animator>();
+        OptionAnimator = OptionPanel.GetComponent<Animator>();
+        LevelAnimator = LevelPanel.GetComponent<Animator>();
+        LevelImage = LevelImagePanel.GetComponent<Animator>();
+        ExitAnimator = ExitPanel.GetComponent<Animator>();
+        CarAnimator = CarPanel.GetComponent<Animator>();
+        CarLevelAnimator = CarLevelPanel.GetComponent<Animator>();
+        CarImageAnimator = CarImagePanel.GetComponent<Animator>();
 
         TopSlider.value = Controllers[0].m_Topspeed;
         AccSlider.value = Controllers[0].m_FullTorqueOverAllWheels;
@@ -80,6 +107,7 @@ public class RaceChooseMenu : MonoBehaviour {
 
         MAPIMAGE.sprite = MapImages[0];
         LevelName.text = MapNames[0];
+
 
         MAINCANVAS = true;
     }
@@ -134,66 +162,111 @@ public class RaceChooseMenu : MonoBehaviour {
             CONFIRMCANVAS = false;
 
             MAIN.enabled = true;
+
+            MainAnimator.Play("MAINSLIDEIN");
         }
         else
         {
-            MAIN.enabled = false;
+            //MAIN.enabled = false;
+            MainAnimator.Play("MAINSLIDEOUT");
         }
 
         if (OPTIONCANVAS)
         {
             OPTIONS.enabled = true;
             LEVELCANVAS = false;
+            OptionAnimator.enabled = true;
+            OptionAnimator.Play("OPTIONSLIDEIN");
             if (Input.GetButton("Cancel"))
             {
                 MAINCANVAS = true;
+                OptionAnimator.Play("OPTIONSLIDEOUT");
             }
         }
         else
         {
-            OPTIONS.enabled = false;
+            //OPTIONS.enabled = false;
         }
 
         if (CONFIRMCANVAS)
         {
             CONFIRM.enabled = true;
+            ExitAnimator.enabled = true;
+            ExitAnimator.Play("EXITSLIDEIN");
             if (Input.GetButtonDown("Cancel"))
             {
                 MAINCANVAS = true;
+                ExitAnimator.Play("EXITSLIDEOUT");
             }
         }
         else
         {
-            CONFIRM.enabled = false;
+            //CONFIRM.enabled = false;
         }
 
         if (LEVELCANVAS)
         {
             LEVELS.enabled = true;
             CARCANVAS = false;
+            LevelAnimator.enabled = true;
+            LevelImage.enabled = true;
+            LevelAnimator.Play("LEVELSLIDEIN");
+            LevelImage.Play("LEVELIMAGESLIDEIN");
             if (Input.GetButtonDown("Cancel"))
             {
                 MAINCANVAS = true;
+                LevelAnimator.Play("LEVELSLIDEOUT");
+                LevelImage.Play("LEVELIMAGESLIDEOUT");
             }
         }
         else
         {
-            LEVELS.enabled = false;
+            //LEVELS.enabled = false;
         }
 
         if (CARCANVAS)
         {
             CARS.enabled = true;
             MAPIMAGEFINAL.sprite = MapImages[selectedMapIndex];
+            CarImageAnimator.enabled = true;
+            CarLevelAnimator.enabled = true;
+            CarAnimator.enabled = true;
+            CarAnimator.Play("CARSLIDEIN");
+            CarLevelAnimator.Play("CARLEVELSLIDEIN");
+            CarImageAnimator.Play("CARIMAGESLIDEIN");
             if (Input.GetButtonDown("Cancel"))
             {
                 LEVELCANVAS = true;
+                CarAnimator.Play("CARSLIDEOUT");
+                CarLevelAnimator.Play("CARLEVELSLIDEOUT");
+                CarImageAnimator.Play("CARIMAGESLIDEOUT");
             }
         }
         else
         {
-            CARS.enabled = false;
+            //CARS.enabled = false;
         }
+    }
+
+    public void BackOption()
+    {
+        MAINCANVAS = true;
+        OptionAnimator.Play("OPTIONSLIDEOUT");
+    }
+
+    public void BackLevel()
+    {
+        MAINCANVAS = true;
+        LevelAnimator.Play("LEVELSLIDEOUT");
+        LevelImage.Play("LEVELIMAGESLIDEOUT");
+    }
+
+    public void BackCar()
+    {
+        LEVELCANVAS = true;
+        CarAnimator.Play("CARSLIDEOUT");
+        CarLevelAnimator.Play("CARLEVELSLIDEOUT");
+        CarImageAnimator.Play("CARIMAGESLIDEOUT");
     }
 
     public void OptionButton()
@@ -212,6 +285,8 @@ public class RaceChooseMenu : MonoBehaviour {
     {
         LEVELCANVAS = false;
         CARCANVAS = true;
+        LevelAnimator.Play("LEVELSLIDEOUT");
+        LevelImage.Play("LEVELIMAGESLIDEOUT");
     }
 
     public void ExitButton()
@@ -228,6 +303,7 @@ public class RaceChooseMenu : MonoBehaviour {
     public void NoButton()
     {
         MAINCANVAS = true;
+        ExitAnimator.Play("EXITSLIDEOUT");
     }
 
     public int LapPluss()

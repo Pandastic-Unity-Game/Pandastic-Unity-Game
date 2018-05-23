@@ -10,8 +10,11 @@ public class LapCount : MonoBehaviour {
 
     private GameObject Decision;
     private RaceDontDestroy Data;
+
+    private bool Found = false;
     // Use this for initialization
     void Start () {
+        Found = false;
         Invoke("find",1);
     }
 
@@ -25,14 +28,17 @@ public class LapCount : MonoBehaviour {
 
         CurrentLap = GetComponent<Text>();
         CurrentLap.text = "1/" + Data.data.ToString();
+        Found = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (lap.currentLap!=0)
+        if (Found)
         {
-            CurrentLap.text = (lap.currentLap+1).ToString() + "/" + Data.data.ToString();
+            if (lap.currentLap != 0)
+            {
+                CurrentLap.text = (lap.currentLap + 1).ToString() + "/" + Data.data.ToString();
+            }
         }
-        
 	}
 }

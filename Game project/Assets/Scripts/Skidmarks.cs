@@ -19,27 +19,34 @@ public class Skidmarks : MonoBehaviour {
     private Renderer Mesh;
     private UnityStandardAssets.Vehicles.Car.CarController Player;
 
+    private bool Found = false;
+
 
     // Use this for initialization
     void Start () {
+        Found = false;
         Invoke("findPlayer",0.2f);
     }
 
     void findPlayer()
     {
         Player = gameObject.transform.root.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>();
+        Found = true;
     }
 	
 	// Update is called once per frame
     void Update()
     {
-        if (Player.IsDrifting)
+        if (Found)
         {
-            SkidMesh();
-        }
-        else
-        {
-            skidding = 0;
+            if (Player.IsDrifting)
+            {
+                SkidMesh();
+            }
+            else
+            {
+                skidding = 0;
+            }
         }
     }
 

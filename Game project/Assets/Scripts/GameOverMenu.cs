@@ -25,8 +25,11 @@ public class GameOverMenu : MonoBehaviour
 
     public bool showResults = false;
 
+    private bool Found = false;
+
     void Start()
     {
+        Found = false;
         showResults = false;
         Invoke("find",1);
     }
@@ -44,21 +47,26 @@ public class GameOverMenu : MonoBehaviour
         LapTimeGUI = GameObject.FindGameObjectWithTag("LapTimeCanvas").GetComponent<Canvas>();
         MinimapGUI = GameObject.FindGameObjectWithTag("PowerUpCanvas").GetComponent<Canvas>();
         PowerUpGUI = GameObject.FindGameObjectWithTag("MinimapCanvas").GetComponent<Canvas>();
+
+        Found = true;
     }
     // Update is called once per frame
     void Update()
     {
-        if (lap.currentLap == Laps1 )
+        if (Found)
         {
-            if (GameIsOver)
+            if (lap.currentLap == Laps1)
             {
-                //Restart();
-            }
-            else
-            {
-                GameIsOver = true;
-                rest = true;
-                Pause();
+                if (GameIsOver)
+                {
+                    //Restart();
+                }
+                else
+                {
+                    GameIsOver = true;
+                    rest = true;
+                    Pause();
+                }
             }
         }
     }
