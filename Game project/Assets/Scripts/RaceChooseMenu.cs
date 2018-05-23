@@ -15,7 +15,10 @@ public class RaceChooseMenu : MonoBehaviour {
 
     public int selectedLaps = 2;
     public int selectedOP = 3;
+    public int selectedLaps1 = 2;
+    public int selectedOP1 = 3;
     public int selectedPlayer = 0;
+    public int selectedPlayer1 = 1;
     public int selectedMapIndex = 0;
 
     public Text Laps;
@@ -65,6 +68,7 @@ public class RaceChooseMenu : MonoBehaviour {
         selectedLaps = 2;
         selectedOP = 3;
         selectedPlayer = 0;
+        selectedPlayer1 = 1;
 
         TopSlider.value = Controllers[0].m_Topspeed;
         AccSlider.value = Controllers[0].m_FullTorqueOverAllWheels;
@@ -226,6 +230,14 @@ public class RaceChooseMenu : MonoBehaviour {
         MAINCANVAS = true;
     }
 
+    public int LapPluss()
+    {
+        if (selectedLaps1 < 10)
+        {
+            selectedLaps1++;
+        }
+        return selectedLaps1;
+    }
     public void LapPlus()
     {
         if (selectedLaps < 10)
@@ -234,6 +246,14 @@ public class RaceChooseMenu : MonoBehaviour {
         }
     }
 
+    public int LapMinuss()
+    {
+        if (selectedLaps1 > 1)
+        {
+            selectedLaps1--;
+        }
+        return selectedLaps1;
+    }
     public void LapMinus()
     {
         if (selectedLaps > 1)
@@ -241,7 +261,14 @@ public class RaceChooseMenu : MonoBehaviour {
             selectedLaps--;
         }
     }
-
+    public int OpPluss()
+    {
+        if (selectedOP1 < 9)
+        {
+            selectedOP1++;
+        }
+        return selectedOP1;
+    }
     public void OpPlus()
     {
         if (selectedOP < 9)
@@ -249,7 +276,14 @@ public class RaceChooseMenu : MonoBehaviour {
             selectedOP++;
         }
     }
-
+    public int OpMinuss()
+    {
+        if (selectedOP1 >= 1)
+        {
+            selectedOP1--;
+        }
+        return selectedOP1;
+    }
     public void OpMinus()
     {
         if (selectedOP >= 1)
@@ -257,7 +291,6 @@ public class RaceChooseMenu : MonoBehaviour {
             selectedOP--;
         }
     }
-
     public void NextMap()
     {
         selectedMapIndex++;
@@ -282,7 +315,17 @@ public class RaceChooseMenu : MonoBehaviour {
         HanSLider.value = Controllers[selectedPlayer].m_SteerHelper;
         WeiSlider.value = CarBodies[selectedPlayer].mass;
     }
-
+    public int NextCarss()
+    {
+        selectedPlayer1++;
+        //CARIMAGE.sprite = CarImages[selectedPlayer1];
+        //CarName.text = CarNames[selectedPlayer1];
+        //TopSlider.value = Controllers[selectedPlayer1].m_Topspeed;
+        //AccSlider.value = Controllers[selectedPlayer1].m_FullTorqueOverAllWheels;
+        //HanSLider.value = Controllers[selectedPlayer1].m_SteerHelper;
+        //WeiSlider.value = CarBodies[selectedPlayer1].mass;
+        return selectedPlayer1;
+    }
     public void PrevCars()
     {
         selectedPlayer--;
@@ -293,7 +336,17 @@ public class RaceChooseMenu : MonoBehaviour {
         HanSLider.value = Controllers[selectedPlayer].m_SteerHelper;
         WeiSlider.value = CarBodies[selectedPlayer].mass;
     }
-
+    public int PrevCarss()
+    {
+        selectedPlayer1--;
+        //CARIMAGE.sprite = CarImages[selectedPlayer1];
+        //CarName.text = CarNames[selectedPlayer1];
+        //TopSlider.value = Controllers[selectedPlayer1].m_Topspeed;
+        //AccSlider.value = Controllers[selectedPlayer1].m_FullTorqueOverAllWheels;
+        //HanSLider.value = Controllers[selectedPlayer1].m_SteerHelper;
+        //WeiSlider.value = CarBodies[selectedPlayer1].mass;
+        return selectedPlayer1;
+    }
     public void RaceButton()
     {
         Decision.selectedPlayer = selectedPlayer;
