@@ -8,17 +8,19 @@ public class CheckToDrive : MonoBehaviour {
     private CountDownTimer Timer;
     private CarController Controller;
     private CarUserControl UserControl;
+    private CarAIControl AIControls;
     private Death DeathScript;
 
     private AudioSource[] Sources;
     private AudioSource[] SkidSources;
 
-    public bool isEnemy = false;
+    public bool isEnemy = true;
 
 	// Use this for initialization
 	void Start () {
         Controller = gameObject.GetComponent<CarController>();
         UserControl = gameObject.GetComponent<CarUserControl>();
+        AIControls = gameObject.GetComponent<CarAIControl>();
         DeathScript = gameObject.GetComponent<Death>();
 
         Controller.enabled = false;
@@ -45,16 +47,27 @@ public class CheckToDrive : MonoBehaviour {
                 {
                     UserControl.enabled = true;
                 }
+                else
+                {
+                    AIControls.enabled = true;
+                }
+                //
 
             }
-        }
-        else
-        {
-            Controller.enabled = false;
-            if (!isEnemy)
+            else
             {
-                UserControl.enabled = false;
+                Controller.enabled = false;
+                if (!isEnemy)
+                {
+                    UserControl.enabled = false;
+                }
+                else
+                {
+                    AIControls.enabled = false;
+                }
+                //
             }
         }
+        
 	}
 }

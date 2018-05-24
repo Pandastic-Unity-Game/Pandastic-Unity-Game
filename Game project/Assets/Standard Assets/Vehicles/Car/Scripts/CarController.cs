@@ -28,7 +28,7 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private WheelEffects[] m_WheelEffects = new WheelEffects[4];
         [SerializeField] private Vector3 m_CentreOfMassOffset;
         [SerializeField] private float m_MaximumSteerAngle;
-        [Range(0, 1)] [SerializeField] public float m_SteerHelper; // 0 is raw physics , 1 the car will grip in the direction it is facing
+        [Range(0, 1)] [SerializeField] public float m_SteerHelper = 0.5f; // 0 is raw physics , 1 the car will grip in the direction it is facing
         [Range(0, 1)] [SerializeField] private float m_TractionControl; // 0 is no traction control, 1 is full interference
         [SerializeField] public float m_FullTorqueOverAllWheels;
         [SerializeField] private float m_ReverseTorque;
@@ -54,7 +54,8 @@ namespace UnityStandardAssets.Vehicles.Car
         public bool Skidding { get; private set; }
         public float BrakeInput { get; private set; }
         public float CurrentSteerAngle{ get { return m_SteerAngle; }}
-        public float CurrentSpeed{ get { return m_Rigidbody.velocity.magnitude*2.23693629f; }}
+        //public float CurrentSpeed{ get { return m_Rigidbody.velocity.magnitude*2.23693629f; }}
+        public float CurrentSpeed = 0f;
         public float MaxSpeed{get { return m_Topspeed; }}
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
@@ -103,6 +104,7 @@ namespace UnityStandardAssets.Vehicles.Car
                     driftEmission.enabled = false;
                 }
             }
+            CurrentSpeed = m_Rigidbody.velocity.magnitude * 2.23693629f;
         }
 
         private void GearChanging()
