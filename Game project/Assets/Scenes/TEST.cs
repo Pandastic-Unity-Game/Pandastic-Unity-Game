@@ -75,7 +75,7 @@ public class TEST
         press2 = tikrinti2.GetComponent<Button>();
         press2.onClick.Invoke();
 
-        yield return new WaitForSeconds(2);
+        yield break;
 
         tikrinti3 = GameObject.FindGameObjectWithTag("race");
         press3 = tikrinti3.GetComponent<Button>();
@@ -120,7 +120,7 @@ public class TEST
         press2 = tikrinti2.GetComponent<Button>();
         press2.onClick.Invoke();
 
-        yield return new WaitForSeconds(2);
+        yield break;
 
         tikrinti3 = GameObject.FindGameObjectWithTag("race");
         press3 = tikrinti3.GetComponent<Button>();
