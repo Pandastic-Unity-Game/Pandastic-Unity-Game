@@ -52,6 +52,7 @@ public class PAUSEMENUGAME : MonoBehaviour {
         Decision = GameObject.FindGameObjectWithTag("Datas");
 
         MAINCANVAS = false;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -74,6 +75,7 @@ public class PAUSEMENUGAME : MonoBehaviour {
 
         if (GameIsPaused)
         {
+            Cursor.visible = true;
             if (MAINCANVAS)
             {
                 OPTIONCANVAS = false;
@@ -137,6 +139,10 @@ public class PAUSEMENUGAME : MonoBehaviour {
             {
                 //CONFIRM.enabled = false;
             }
+        }
+        else
+        {
+            Cursor.visible = false;
         }
     }
 
@@ -225,6 +231,7 @@ public class PAUSEMENUGAME : MonoBehaviour {
     {
         Time.timeScale = 1f;
         MAINCANVAS = false;
+        Destroy(Decision);
         SceneManager.LoadScene("Menu");
     }
 }

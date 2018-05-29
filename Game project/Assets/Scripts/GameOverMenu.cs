@@ -23,20 +23,27 @@ public class GameOverMenu : MonoBehaviour
     private Canvas MinimapGUI;
     private Canvas PowerUpGUI;
 
+    private PAUSEMENUGAME pause;
+
     public bool showResults = false;
 
     private bool Found = false;
+
+    private GameObject Decision;
 
     void Start()
     {
         Found = false;
         showResults = false;
         Invoke("find",1);
+        pause = this.GetComponent<PAUSEMENUGAME>();
     }
 
     void find()
     {
         lap = GameObject.FindGameObjectWithTag("LOL").GetComponent<CarPosition>();
+
+        Decision = GameObject.FindGameObjectWithTag("Datas");
 
         Total = GameObject.FindGameObjectWithTag("Datas");
         TotalLaps = Total.GetComponent<RaceDontDestroy>();
@@ -85,6 +92,7 @@ public class GameOverMenu : MonoBehaviour
         PositionPanel.SetActive(false);
         showResults = true;
         GameOverMenuUI.SetActive(true);
+        pause.GameIsPaused = true;
         Time.timeScale = 0.0f;
     }
 }

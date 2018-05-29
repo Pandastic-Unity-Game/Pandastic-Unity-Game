@@ -81,6 +81,11 @@ public class RaceChooseMenu : MonoBehaviour {
     public CarController[] Controllers;
     public Rigidbody[] CarBodies;
 
+    public GameObject LoadingScreen;
+    public Slider LoadingSlider;
+
+    AsyncOperation async;
+
     private void Start()
     {
         selectedLaps = 2;
@@ -428,10 +433,27 @@ public class RaceChooseMenu : MonoBehaviour {
         Decision.selectedPlayer = selectedPlayer;
         Decision.data = selectedLaps;
         Decision.opponents = selectedOP;
-        if (selectedMapIndex == 0)
+
+        StartCoroutine(Loading());
+    }
+
+    IEnumerator Loading()
+    {
+        LoadingScreen.SetActive(true);
+        async = SceneManager.LoadSceneAsync(1);
+        async.allowSceneActivation = false;
+
+        while(async.isDone == false)
         {
-            SceneManager.LoadScene("Map2");
+            LoadingSlider.value = async.progress;
+            if (async.progress == 0.9f)
+            {
+                LoadingSlider.value = 1f;
+                async.allowSceneActivation = true;
+            }
+            yield return null;
         }
+
     }
 }
 
